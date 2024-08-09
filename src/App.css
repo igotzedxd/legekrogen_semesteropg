@@ -31,3 +31,7 @@ a {
 li {
   list-style: none;
 }
+
+.cursive {
+  font-family: "Square Peg", cursive;
+}
