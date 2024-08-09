@@ -21,6 +21,7 @@ function Home() {
           src={"/heros/forsiden.jpg"}
           heading={"At lege er at leve"}
           text={"Her hos os har vi et stort udvalg af legetøj i høj kvalitet"}
+          page={""}
         />
       </div>
       <Footer />

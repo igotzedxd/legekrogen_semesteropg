@@ -25,12 +25,17 @@
 }
 
 .inner h2 {
-  font-size: 4rem;
-  font-weight: 500;
+  font-size: 3.5rem;
+  font-weight: 300;
 }
 
 .inner p {
   max-width: 90%;
   font-weight: 500;
   font-size: 1.2rem;
+}
+
+.inner h3 {
+  font-size: 3rem;
+  font-weight: 300;
 }
