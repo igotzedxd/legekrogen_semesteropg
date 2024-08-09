@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./home.module.css";
 import DeliveryMessage from "../../components/deliveryMessage/DeliveryMessage";
+import Header from "../../components/header/Header";
 import Hero from "../../components/hero/Hero";
 import Footer from "../../components/footer/Footer";
 
@@ -15,6 +16,7 @@ function Home() {
     <div className={styles.container}>
       <div className={styles.top}>
         <DeliveryMessage />
+        <Header/>
         <Hero
           src={"/heros/forsiden.jpg"}
           heading={"At lege er at leve"}

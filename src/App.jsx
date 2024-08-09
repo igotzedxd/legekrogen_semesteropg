@@ -8,8 +8,8 @@ import "./App.css";
 function App() {
   const routes = useRoutes([
     { path: "/", element: <Home /> },
-    { path: "/Produkter", element: <Products /> },
-    { path: "/FAQ", element: <Faq /> },
+    { path: "/produkter", element: <Products /> },
+    { path: "/faq", element: <Faq /> },
     { path: "/kundeklub", element: <Club /> },
   ]);
 
