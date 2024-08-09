@@ -1,16 +1,11 @@
-import { useState, useEffect } from 'react';
-import styles from './deliveryMessage.module.css';
+import styles from "./deliveryMessage.module.css";
+import { FaTruckMoving } from "react-icons/fa";
 
 function DeliveryMessage() {
-  const [state, setState] = useState(null);
-
-  useEffect(() => {
-    // Your effect logic here
-  }, []);
-
   return (
     <div className={styles.container}>
-      DeliveryMessage
+      <FaTruckMoving />
+      <p>Fri fragt ved køb over 499,-</p>
     </div>
   );
 }
