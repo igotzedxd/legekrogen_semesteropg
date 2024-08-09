@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./home.module.css";
 import DeliveryMessage from "../../components/deliveryMessage/DeliveryMessage";
+import Hero from "../../components/hero/Hero";
 
 function Home() {
   const [state, setState] = useState(null);
@@ -11,7 +12,14 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      <DeliveryMessage />
+      <div className={styles.top}>
+        <DeliveryMessage />
+        <Hero
+          src={"/heros/forsiden.jpg"}
+          heading={"At lege er at leve"}
+          text={"Her hos os har vi et stort udvalg af legetøj i høj kvalitet"}
+        />
+      </div>
     </div>
   );
 }
