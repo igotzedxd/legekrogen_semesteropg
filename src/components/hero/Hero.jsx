@@ -1,15 +1,23 @@
 import { useState, useEffect } from "react";
 import styles from "./hero.module.css";
 
-function Hero({ src, heading, text }) {
+function Hero({ src, heading, text, largeText, page }) {
   return (
     <>
-      {src && heading && text && (
+      {src && heading && (
         <div className={styles.container}>
           <img src={src} alt="hero" className={styles.hero} />
-          <div className={styles.inner}>
+          <div
+            style={
+              page === "produkter"
+                ? { height: "33%", transform: "translateY(120%)" }
+                : {}
+            }
+            className={styles.inner}
+          >
             <h2 className="cursive">{heading}</h2>
-            <p>{text}</p>
+            {text && <p>{text}</p>}
+            {largeText && <h3>{largeText}</h3>}
           </div>
         </div>
       )}
