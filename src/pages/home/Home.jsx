@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./home.module.css";
 import DeliveryMessage from "../../components/deliveryMessage/DeliveryMessage";
 import Hero from "../../components/hero/Hero";
+import Footer from "../../components/footer/Footer";
 
 function Home() {
   const [state, setState] = useState(null);
@@ -20,6 +21,7 @@ function Home() {
           text={"Her hos os har vi et stort udvalg af legetøj i høj kvalitet"}
         />
       </div>
+      <Footer />
     </div>
   );
 }
