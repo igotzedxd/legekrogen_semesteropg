@@ -3,8 +3,9 @@ import styles from "./products.module.css";
 import DeliveryMessage from "../../components/deliveryMessage/DeliveryMessage";
 import Hero from "../../components/hero/Hero";
 import Footer from "../../components/footer/Footer";
+import Products from "../../components/products/Products";
 
-function Products() {
+function Produkter() {
   const [state, setState] = useState(null);
 
   useEffect(() => {
@@ -22,10 +23,10 @@ function Products() {
           page={"produkter"}
         />
       </div>
+      <Products />
       <Footer />
     </div>
   );
 }
 
-
-export default Products;
+export default Produkter;

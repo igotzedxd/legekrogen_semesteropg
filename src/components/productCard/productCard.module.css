@@ -1,0 +1,10 @@
+.productDiv {
+  height: 200px;
+  width: 200px;
+  background-color: grey;
+}
+
+.productImg {
+  height: 100px;
+  width: 100px;
+}

@@ -1,16 +1,36 @@
-import { useState, useEffect } from 'react';
-import styles from './products.module.css';
+import { useState, useEffect } from "react";
+import styles from "./products.module.css";
+import useFetch from "../hooks/useFetch";
+import ProductCard from "../productCard/ProductCard";
 
 function Products() {
-  const [state, setState] = useState(null);
+  const { data: products, error } = useFetch(
+    "https://legekrogen.webmcdm.dk/products"
+  );
+  const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    // Your effect logic here
-  }, []);
+    if (products.length > 0) {
+      setProductList(products);
+    }
+    console.log(productList);
+  }, [products, productList]);
+
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
 
   return (
-    <div className={styles.container}>
-      Products
+    <div className={styles.productContainer}>
+      {productList.map((product) => (
+        <ProductCard
+          key={product.index}
+          name={product.title}
+          imgURL={product.image}
+          description={product.description}
+          price={product.price}
+        />
+      ))}
     </div>
   );
 }
