@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Produkter from "./pages/products/Produkter";
+import Produkter from "./pages/produkter/Produkter";
 import Faq from "./pages/faq/FAQ";
 import Club from "./pages/club/Club";
 import "./App.css";
