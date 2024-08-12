@@ -23,7 +23,9 @@ function Produkter() {
           page={"produkter"}
         />
       </div>
-      <Products />
+      <div className={styles.contentDiv}>
+        <Products />
+      </div>
       <Footer />
     </div>
   );

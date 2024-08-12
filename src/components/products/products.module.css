@@ -2,6 +2,8 @@
   max-width: 1080px;
   margin: 0 auto;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 100px;
 }
