@@ -1,7 +1,7 @@
-import styles from "./home.module.css";
+import NewsletterContainer from "../../components/newsletterContainer/NewsletterContainer";
 
 function Home() {
-  return <p></p>;
+  return <NewsletterContainer/>;
 }
 
 export default Home;
