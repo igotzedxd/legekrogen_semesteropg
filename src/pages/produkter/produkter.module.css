@@ -1,7 +1,10 @@
-
 .top {
-    display: flex;
-    flex-flow: column nowrap;
-    height: 100dvh;
-  }
-  
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100dvh;
+}
+
+.contentDiv {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
