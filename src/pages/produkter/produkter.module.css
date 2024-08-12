@@ -1,5 +1,30 @@
+.top {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100dvh;
+}
+
 .contentDiv {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  gap: 50px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #c1adce;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.contentHeaderDiv {
+  text-align: center;
+}
+
+.altVores {
+  font-size: 2.5rem;
+}
+
+.leje {
+  font-size: 3rem;
 }
 
