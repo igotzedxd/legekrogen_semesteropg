@@ -1,16 +1,45 @@
 import { useRoutes } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Produkter from "./pages/products/Produkter";
+import Produkter from "./pages/produkter/Produkter";
 import Faq from "./pages/faq/FAQ";
 import Club from "./pages/club/Club";
+import Layout from "./Layout";
 import "./App.css";
 
 function App() {
   const routes = useRoutes([
-    { path: "/", element: <Home /> },
-    { path: "/produkter", element: <Produkter /> },
-    { path: "/faq", element: <Faq /> },
-    { path: "/kundeklub", element: <Club /> },
+    {
+      path: "/",
+      element: (
+        <Layout>
+          <Home />
+        </Layout>
+      ),
+    },
+    {
+      path: "/produkter",
+      element: (
+        <Layout>
+          <Produkter />
+        </Layout>
+      ),
+    },
+    {
+      path: "/faq",
+      element: (
+        <Layout>
+          <Faq />
+        </Layout>
+      ),
+    },
+    {
+      path: "/kundeklub",
+      element: (
+        <Layout page={"club"}>
+          <Club />
+        </Layout>
+      ),
+    },
   ]);
 
   return <>{routes}</>;

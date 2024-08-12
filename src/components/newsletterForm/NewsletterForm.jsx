@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import usePost from "../../usePost/usePost";
+import usePost from "../../hooks/usePost";
 import styles from "./newsletterForm.module.css";
 
 function NewsletterForm({onSubmitSuccess}) {
