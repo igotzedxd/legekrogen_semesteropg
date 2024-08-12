@@ -1,7 +1,8 @@
 import NewsletterContainer from "../../components/newsletterContainer/NewsletterContainer";
 
 function Home() {
-  return <NewsletterContainer/>;
+  return <>
+  </>;
 }
 
 export default Home;

@@ -1,7 +1,5 @@
-import NewsletterForm from "../../components/NewsletterForm/NewsletterForm";
-
 function Club() {
-  return <NewsletterForm />;
+  return <></>;
 }
 
 export default Club;

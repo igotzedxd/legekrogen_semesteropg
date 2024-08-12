@@ -3,8 +3,8 @@ import Header from "./components/header/Header";
 import Hero from "./components/hero/Hero";
 import Footer from "./components/footer/Footer";
 import styles from "./layout.module.css";
-import NewsletterForm from "./components/NewsletterForm/NewsletterForm";
-import NewsletterLink from "./components/NewsletterLink/NewsletterLink";
+import NewsletterForm from "./components/newsletterForm/NewsletterForm";
+import NewsletterContainer from "./components/newsletterContainer/NewsletterContainer";
 
 function Layout({ children, page }) {
   return (
@@ -20,7 +20,7 @@ function Layout({ children, page }) {
         />
       </div>
       {children}
-      {page === "club" ? <NewsletterForm /> : <NewsletterLink />}
+      {page === "club" ? <NewsletterForm /> : <NewsletterContainer />}
       <Footer />
     </div>
   );
