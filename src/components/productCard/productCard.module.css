@@ -1,10 +1,41 @@
 .productDiv {
-  height: 200px;
-  width: 200px;
-  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  border-radius: 15px;
+  height: 300px;
+  width: 250px;
+  background-color: #9478a7;
+  color: white;
+}
+
+.productTextDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+}
+
+.productName {
+  font-weight: 100;
+}
+
+.productDescription {
+  font-weight: 500;
+}
+
+.productPrice {
+  font-weight: 500;
 }
 
 .productImg {
-  height: 100px;
-  width: 100px;
+  border-radius: 15px 15px 0 0;
+  object-fit: cover;
+  height: 150px;
+  width: 250px;
+}
+
+.priceDiv {
+  padding: 10px;
 }
