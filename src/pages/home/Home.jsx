@@ -6,6 +6,7 @@ import Hero from "../../components/hero/Hero";
 import Footer from "../../components/footer/Footer";
 import NewsletterLink from "../../components/newsletterLink/NewsletterLink";
 import NewsletterMessage from "../../components/newsletterMessage/NewsletterMessage";
+import NewsletterContainer from "../../components/newsletterContainer/NewsletterContainer";
 
 function Home() {
   const [state, setState] = useState(null);
@@ -26,7 +27,7 @@ function Home() {
           page={""}
         />
       </div>
-      <NewsletterLink/>
+      <NewsletterContainer/>
       <Footer />
     </div>
   );

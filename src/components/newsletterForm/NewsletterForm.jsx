@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import usePost from "../../usePost/usePost";
 import styles from "./newsletterForm.module.css";
 
-function NewsletterForm() {
+function NewsletterForm({onSubmitSuccess}) {
   const [nameValue, setNameValue] = useState("");
   const [mailValue, setMailValue] = useState("");
   const [msgValue, setMsgValue] = useState("");
@@ -19,7 +19,9 @@ function NewsletterForm() {
       message: msgValue,
     };
 
-    post(postData);
+    post(postData).then(() => {
+      onSubmitSuccess();
+    });
   };
 
   useEffect(() => {
@@ -50,20 +52,20 @@ function NewsletterForm() {
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className={styles.container}>
-      <input
+      <input required
         ref={nameRef}
         type="text"
         placeholder="Fulde Navn"
         value={nameValue}
         onChange={(e) => setNameValue(e.target.value)}
       />
-      <input
+      <input required
         type="email"
         placeholder="Email"
         value={mailValue}
         onChange={(e) => setMailValue(e.target.value)}
       />
-      <textarea
+      <textarea required
         className={styles.largeInput}
         placeholder="Hvem køber du legetøj til?"
         value={msgValue}
