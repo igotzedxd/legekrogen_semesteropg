@@ -25,6 +25,7 @@ function Products() {
       {productList.map((product) => (
         <ProductCard
           key={product.index}
+          id={product._id}
           name={product.title}
           imgURL={product.image}
           description={product.description}
