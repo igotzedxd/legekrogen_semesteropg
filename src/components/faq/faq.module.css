@@ -1,0 +1,82 @@
+.container {
+  padding-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 50px;
+  color: rgb(15, 84, 141);
+}
+
+.faq {
+  position: relative;
+  width: 90%;
+  padding: 30px 40px;
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 1rem;
+  gap: 1rem;
+}
+
+.faq p {
+  width: 80%;
+}
+
+.q {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.a {
+  margin-top: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+li {
+  margin-top: 0.5rem;
+}
+
+.arrow {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: ;
+}
+
+.line {
+  position: relative;
+  width: 0;
+  height: 1px;
+  margin-top: 1rem;
+}
+
+.line::before {
+  content: "";
+  width: 0;
+  height: 1px;
+  position: absolute;
+  right: 50%;
+  background-color: rgb(190, 190, 190);
+  animation: lineAnimate 0.5s ease-in-out forwards;
+}
+.line::after {
+  content: "";
+  width: 0;
+  height: 1px;
+  position: absolute;
+  left: 50%;
+  background-color: rgb(190, 190, 190);
+  animation: lineAnimate 0.5s ease-in-out forwards;
+}
+
+@keyframes lineAnimate {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 50%;
+  }
+}
