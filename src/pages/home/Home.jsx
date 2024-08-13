@@ -1,7 +1,8 @@
-import NewsletterContainer from "../../components/newsletterContainer/NewsletterContainer";
+import Reviews from "../../components/reviews/Reviews.jsx";
 
 function Home() {
   return <>
+    <Reviews />
   </>;
 }
 

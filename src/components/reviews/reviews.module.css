@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    text-align: center;
+    margin: 8vh 0;
+    color: #355674;
+}
+
+.container > h2{
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+.container > h1{
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 3vh;
+}
+
+.reviewContainer{
+    margin: 3vh 0;
+    width: 85%;
+}
+
+.reviewDescription{
+    font-size: 1rem;
+}
+
+.reviewName{
+    font-size: 1.4rem;
+    margin-top: 1vh;
+}
+
