@@ -39,3 +39,8 @@
 .priceDiv {
   padding: 10px;
 }
+
+.likeButton {
+  background-color: transparent;
+  border: none;
+}
