@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import styles from "./products.module.css";
 import useFetch from "../hooks/useFetch";
 import ProductCard from "../productCard/ProductCard";
+import { NavLink } from "react-router-dom";
 
 function Products() {
-  const { data: products, error } = useFetch(
-    "https://legekrogen.webmcdm.dk/products"
-  );
+  const { data: products, error } = useFetch("https://legekrogen.webmcdm.dk/products");
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
@@ -22,15 +21,16 @@ function Products() {
 
   return (
     <div className={styles.productContainer}>
-      {productList.map((product) => (
-        <ProductCard
-          key={product.index}
-          id={product._id}
-          name={product.title}
-          imgURL={product.image}
-          description={product.description}
-          price={product.price}
-        />
+      {productList.map((product, index) => (
+        <NavLink to={`/produkter/${product._id}`} key={index}>
+          <ProductCard
+            id={product._id}
+            name={product.title}
+            imgURL={product.image}
+            description={product.description}
+            price={product.price}
+          />
+        </NavLink>
       ))}
     </div>
   );
