@@ -18,7 +18,9 @@ function Faq() {
 
   const addDashesToText = (htmlContent) => {
     // Replace <p> and <li> tags with a dash followed by the original content
-    const modifiedContent = htmlContent.replace(/<p>/g, "<p> ").replace(/<li>/g, "<li>- ");
+    console.log("htmlcontent", htmlContent);
+    const modifiedContent = htmlContent.replace(/<li>/g, "<li>- ");
+    console.log("modifiedcontent", modifiedContent);
 
     return parse(modifiedContent);
   };
@@ -34,7 +36,7 @@ function Faq() {
           <div key={q._id} onClick={() => toggleOpenId(q._id)} className={styles.faq}>
             {/* render question */}
             <p className={styles.q}>{q.question}</p>
-            {/* line to seperate Q and A */}
+            {/* line to seperate Q and A (::before and ::after styling and keyframes*/}
             {openIds.includes(q._id) && <p className={styles.line}></p>}
             {/* instead of styling display none, we just don't render it unless the container is clicked */}
             {openIds.includes(q._id) && <div className={styles.a}>{addDashesToText(q.answer)}</div>}
