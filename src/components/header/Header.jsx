@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./header.module.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaXmark } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   const [activeBM, setActiveBM] = useState(false);
@@ -13,13 +14,11 @@ function Header() {
   return (
     <div>
       <div className={styles.container}>
-        <img src="/logo/legekrogen_logo.png" alt="" className={styles.logo} />
+        <NavLink className={styles.logo} to={"/"}>
+          <img src="/logo/legekrogen_logo.png" alt="" />
+        </NavLink>
         <div className={styles.burgerMenu}>
-          {!activeBM ? (
-            <RxHamburgerMenu onClick={navMenu} />
-          ) : (
-            <FaXmark onClick={navMenu} />
-          )}
+          {!activeBM ? <RxHamburgerMenu onClick={navMenu} /> : <FaXmark onClick={navMenu} />}
         </div>
       </div>
       <ul className={`${styles.nav} ${activeBM ? styles.show : ""}`}>

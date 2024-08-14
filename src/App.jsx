@@ -1,6 +1,7 @@
 import { useRoutes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Produkter from "./pages/produkter/Produkter";
+import EnkeltProdukt from "./pages/enkeltProdukt/EnkeltProdukt";
 import Faq from "./pages/faq/FAQ";
 import Club from "./pages/club/Club";
 import Layout from "./Layout";
@@ -39,6 +40,10 @@ function App() {
           <Club />
         </Layout>
       ),
+    },
+    {
+      path: "/produkter/:id",
+      element: <EnkeltProdukt />,
     },
   ]);
 
