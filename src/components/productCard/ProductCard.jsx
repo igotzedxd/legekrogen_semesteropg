@@ -36,11 +36,11 @@ const ProductCard = ({ product }) => {
         likedProducts = likedProducts.filter((productId) => productId !== product._id);
         localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
       }
-      const event = new Event("favoritesUpdated");
-      window.dispatchEvent(event);
 
       return newLikedStatus;
     });
+    const event = new Event("favoritesUpdated");
+    window.dispatchEvent(event);
   };
 
   return (
