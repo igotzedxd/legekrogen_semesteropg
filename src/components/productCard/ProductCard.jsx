@@ -1,34 +1,32 @@
 import styles from "../productCard/productCard.module.css";
 import { useState, useEffect } from "react";
 
-const ProductCard = ({ name, description, imgURL, price, id }) => {
+const ProductCard = ({ product }) => {
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     // Check if the product is already liked when the component mounts
-    const likedProducts =
-      JSON.parse(localStorage.getItem("likedProducts")) || [];
-    if (likedProducts.includes(id)) {
+    const likedProducts = JSON.parse(localStorage.getItem("likedProducts")) || [];
+    if (likedProducts.includes(product._id)) {
       setLiked(true);
     }
-  }, [id]);
+  }, [product]);
 
   const toggleLike = (e) => {
     e.preventDefault();
     setLiked((prevLiked) => {
       const newLikedStatus = !prevLiked;
-      let likedProducts =
-        JSON.parse(localStorage.getItem("likedProducts")) || [];
+      let likedProducts = JSON.parse(localStorage.getItem("likedProducts")) || [];
 
       if (newLikedStatus) {
         // Add the product to liked products in localStorage if it's not already there
-        if (!likedProducts.includes(id)) {
-          likedProducts.push(id);
+        if (!likedProducts.includes(product._id)) {
+          likedProducts.push(product._id);
           localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
         }
       } else {
         // Remove the product from liked products in localStorage
-        likedProducts = likedProducts.filter((productId) => productId !== id);
+        likedProducts = likedProducts.filter((productId) => productId !== product._id);
         localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
       }
       const event = new Event("favoritesUpdated");
@@ -40,13 +38,13 @@ const ProductCard = ({ name, description, imgURL, price, id }) => {
 
   return (
     <div className={styles.productDiv}>
-      <img src={imgURL} className={styles.productImg} alt={name}></img>
+      <img src={product.image} className={styles.productImg} alt={product.name}></img>
       <div className={styles.productTextDiv}>
-        <p className={styles.productName}>{name}</p>
-        <h3 className={styles.productDescription}>{description}</h3>
+        <p className={styles.productName}>{product.name}</p>
+        <h3 className={styles.productDescription}>{product.description}</h3>
       </div>
       <div className={styles.priceDiv}>
-        <h3 className={styles.productPrice}>{price} kr</h3>
+        <h3 className={styles.productPrice}>{product.price} kr</h3>
         <button onClick={toggleLike} className={styles.likeButton}>
           {liked ? "❤️" : "♡"}
         </button>

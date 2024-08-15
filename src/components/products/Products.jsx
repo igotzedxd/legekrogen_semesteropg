@@ -6,9 +6,7 @@ import { NavLink } from "react-router-dom";
 import MyFavorites from "../myFavorites/MyFavorites";
 
 function Products() {
-  const { data: products, error } = useFetch(
-    "https://legekrogen.webmcdm.dk/products"
-  );
+  const { data: products, error } = useFetch("https://legekrogen.webmcdm.dk/products");
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
@@ -28,13 +26,7 @@ function Products() {
       <div className={styles.productContainer}>
         {productList.map((product, index) => (
           <NavLink to={`/produkter/${product._id}`} key={index}>
-            <ProductCard
-              id={product._id}
-              name={product.title}
-              imgURL={product.image}
-              description={product.description}
-              price={product.price}
-            />
+            <ProductCard id={product._id} product={product} />
           </NavLink>
         ))}
       </div>
