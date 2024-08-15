@@ -8,10 +8,8 @@ const ProductCard = ({ product }) => {
   const [liked, setLiked] = useState(false);
   const { cart, handleCart } = useContext(AppContext);
 
-  let isInCart = false;
   let cartItem = {};
   if (cart.length > 0) {
-    isInCart = cart.some((item) => item._id === product._id);
     cartItem = cart.find((item) => item._id === product._id);
   }
 
