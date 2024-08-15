@@ -4,8 +4,6 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FaRegTrashCan, FaXmark } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { AppContext } from "../../context/AppContext";
-
-import { FaXmark } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
 function Header() {
@@ -55,11 +53,7 @@ function Header() {
           {cart.length > 0 ? (
             cart.map((product, index) => (
               <div key={index} className={styles.cartItem}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className={styles.cartItemImage}
-                />
+                <img src={product.image} alt={product.name} className={styles.cartItemImage} />
                 <div className={styles.cartItemDetails}>
                   <p>{product.name}</p>
                   <p>{product.price} kr</p>
@@ -71,12 +65,8 @@ function Header() {
                 >
                   &times;
                 </button>
-                <button onClick={() => handleCart("dec", (product = product))}>
-                  -
-                </button>
-                <button onClick={() => handleCart("inc", (product = product))}>
-                  +
-                </button>
+                <button onClick={() => handleCart("dec", (product = product))}>-</button>
+                <button onClick={() => handleCart("inc", (product = product))}>+</button>
               </div>
             ))
           ) : (

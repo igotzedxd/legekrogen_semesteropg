@@ -3,33 +3,26 @@ import styles from "./products.module.css";
 import useFetch from "../hooks/useFetch";
 import ProductCard from "../productCard/ProductCard";
 import { AppContext } from "../../context/AppContext";
+import MyFavorites from "../myFavorites/MyFavorites";
+import { NavLink } from "react-router-dom";
 
 function Products() {
   const { data: products, error } = useContext(AppContext);
-import { NavLink } from "react-router-dom";
-import MyFavorites from "../myFavorites/MyFavorites";
 
-  useEffect(() => {
-    if (products.length > 0) {
-      setProductList(products);
-    }
-    console.log(productList);
-  }, [products, productList]);
-
-  useEffect(() => {
-    console.log(error);
-  }, [error]);
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
-    <div className={styles.productContainer}>
-      {productList.map((product, index) => (
-        <ProductCard key={index} id={product._id} product={product} />
-      ))}
-    </div>
     <>
+      <div className={styles.productContainer}>
+        {products?.map((product, index) => (
+          <ProductCard key={index} id={product._id} product={product} />
+        ))}
+      </div>
       <MyFavorites />
       <div className={styles.productContainer}>
-        {productList.map((product, index) => (
+        {products?.map((product, index) => (
           <NavLink to={`/produkter/${product._id}`} key={index}>
             <ProductCard id={product._id} product={product} />
           </NavLink>
