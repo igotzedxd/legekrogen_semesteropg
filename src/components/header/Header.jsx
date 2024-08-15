@@ -22,14 +22,13 @@ function Header() {
   return (
     <div>
       <div className={styles.container}>
-        <img src="/logo/legekrogen_logo.png" alt="" className={styles.logo} />
+        <NavLink className={styles.logo} to={"/"}>
+          <img src="/logo/legekrogen_logo.png" alt="" />
+        </NavLink>{" "}
         <div className={styles.shoppingCart} onClick={toggleCart}>
           <FaShoppingCart />
           <span className={styles.cartCount}>{cart.length}</span>
         </div>
-        <NavLink className={styles.logo} to={"/"}>
-          <img src="/logo/legekrogen_logo.png" alt="" />
-        </NavLink>
         <div className={styles.burgerMenu}>
           {!activeBM ? <RxHamburgerMenu onClick={navMenu} /> : <FaXmark onClick={navMenu} />}
         </div>
