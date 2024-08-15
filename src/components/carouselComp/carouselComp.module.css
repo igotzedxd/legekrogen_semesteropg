@@ -1,0 +1,17 @@
+
+
+.link img {
+  width: 100%;
+  object-fit: cover;
+}
+
+span h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+span h3,
+span p {
+  padding-left: 20px;
+}

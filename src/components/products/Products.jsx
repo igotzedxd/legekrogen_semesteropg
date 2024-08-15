@@ -6,7 +6,8 @@ import { AppContext } from "../../context/AppContext";
 
 function Products() {
   const { data: products, error } = useContext(AppContext);
-  const [productList, setProductList] = useState([]);
+import { NavLink } from "react-router-dom";
+import MyFavorites from "../myFavorites/MyFavorites";
 
   useEffect(() => {
     if (products.length > 0) {
@@ -25,6 +26,16 @@ function Products() {
         <ProductCard key={index} id={product._id} product={product} />
       ))}
     </div>
+    <>
+      <MyFavorites />
+      <div className={styles.productContainer}>
+        {productList.map((product, index) => (
+          <NavLink to={`/produkter/${product._id}`} key={index}>
+            <ProductCard id={product._id} product={product} />
+          </NavLink>
+        ))}
+      </div>
+    </>
   );
 }
 

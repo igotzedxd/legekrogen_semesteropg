@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { FaCartPlus, FaCartArrowDown } from "react-icons/fa";
 import { BsFillCartPlusFill, BsFillCartCheckFill } from "react-icons/bs";
 import { AppContext } from "../../context/AppContext";
+import { useState, useEffect } from "react";
 
 const ProductCard = ({ product }) => {
   const [liked, setLiked] = useState(false);
@@ -20,9 +21,15 @@ const ProductCard = ({ product }) => {
     const likedProducts =
       JSON.parse(localStorage.getItem("likedProducts")) || [];
     setLiked(likedProducts.includes(product._id));
+    // Check if the product is already liked when the component mounts
+    const likedProducts = JSON.parse(localStorage.getItem("likedProducts")) || [];
+    if (likedProducts.includes(product._id)) {
+      setLiked(true);
+    }
   }, [product]);
 
-  const toggleLike = () => {
+  const toggleLike = (e) => {
+    e.preventDefault();
     setLiked((prevLiked) => {
       const newLikedStatus = !prevLiked;
       const likedProducts =
@@ -43,7 +50,21 @@ const ProductCard = ({ product }) => {
           "likedProducts",
           JSON.stringify(updatedLikedProducts)
         );
+      let likedProducts = JSON.parse(localStorage.getItem("likedProducts")) || [];
+
+      if (newLikedStatus) {
+        // Add the product to liked products in localStorage if it's not already there
+        if (!likedProducts.includes(product._id)) {
+          likedProducts.push(product._id);
+          localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
+        }
+      } else {
+        // Remove the product from liked products in localStorage
+        likedProducts = likedProducts.filter((productId) => productId !== product._id);
+        localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
       }
+      const event = new Event("favoritesUpdated");
+      window.dispatchEvent(event);
 
       return newLikedStatus;
     });
@@ -56,6 +77,7 @@ const ProductCard = ({ product }) => {
         className={styles.productImg}
         alt={product.name}
       />
+      <img src={product.image} className={styles.productImg} alt={product.name}></img>
       <div className={styles.productTextDiv}>
         <p className={styles.productName}>{product.name}</p>
         <h3 className={styles.productDescription}>{product.description}</h3>

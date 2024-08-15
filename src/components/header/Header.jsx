@@ -5,6 +5,9 @@ import { FaRegTrashCan, FaXmark } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { AppContext } from "../../context/AppContext";
 
+import { FaXmark } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
+
 function Header() {
   const [activeBM, setActiveBM] = useState(false);
   const [activeCart, setActiveCart] = useState(false);
@@ -26,12 +29,11 @@ function Header() {
           <FaShoppingCart />
           <span className={styles.cartCount}>{cart.length}</span>
         </div>
+        <NavLink className={styles.logo} to={"/"}>
+          <img src="/logo/legekrogen_logo.png" alt="" />
+        </NavLink>
         <div className={styles.burgerMenu}>
-          {!activeBM ? (
-            <RxHamburgerMenu onClick={navMenu} />
-          ) : (
-            <FaXmark onClick={navMenu} />
-          )}
+          {!activeBM ? <RxHamburgerMenu onClick={navMenu} /> : <FaXmark onClick={navMenu} />}
         </div>
       </div>
       <ul className={`${styles.nav} ${activeBM ? styles.show : ""}`}>
