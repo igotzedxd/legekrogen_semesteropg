@@ -8,12 +8,11 @@ export const AppContext = createContext();
 export const ContextProvider = ({ children }) => {
   const { data, error } = useFetch("https://legekrogen.webmcdm.dk/products");
 
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cartProducts")) || []
-  );
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cartProducts")) || []);
 
   // function that takes types
-  const handleCart = (type, product) => {
+  const handleCart = (e, type, product) => {
+    e.preventDefault();
     if (type === "clear") {
       localStorage.setItem("cartProduct", JSON.stringify([]));
       setCart([]);
@@ -27,18 +26,14 @@ export const ContextProvider = ({ children }) => {
         type === "add"
           ? productInCart
             ? prevCart.map((item) =>
-                item._id === product._id
-                  ? { ...item, count: (item.count || 0) + 1 }
-                  : item
+                item._id === product._id ? { ...item, count: (item.count || 0) + 1 } : item
               )
             : [...prevCart, { ...product, count: 1 }]
           : type === "remove"
           ? prevCart.filter((item) => item._id !== product._id)
           : type === "inc"
           ? prevCart.map((item) =>
-              item._id === product._id
-                ? { ...item, count: (item.count || 0) + 1 }
-                : item
+              item._id === product._id ? { ...item, count: (item.count || 0) + 1 } : item
             )
           : type === "dec"
           ? prevCart.reduce((acc, item) => {
@@ -58,11 +53,7 @@ export const ContextProvider = ({ children }) => {
     });
   };
 
-  return (
-    <AppContext.Provider value={{ data, cart, handleCart }}>
-      {children}
-    </AppContext.Provider>
-  );
+  return <AppContext.Provider value={{ data, cart, handleCart }}>{children}</AppContext.Provider>;
 };
 
 // function for each

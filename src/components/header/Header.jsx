@@ -48,7 +48,8 @@ function Header() {
       </ul>
       {activeCart && (
         <div className={styles.cartDropdown}>
-          <FaRegTrashCan onClick={() => handleCart("clear")} />
+          {cart.length > 0 && <FaRegTrashCan onClick={(e) => handleCart(e, "clear")} />}
+
           {cart.length > 0 ? (
             cart.map((product, index) => (
               <div key={index} className={styles.cartItem}>
@@ -60,12 +61,12 @@ function Header() {
                 </div>
                 <button
                   className={styles.removeButton}
-                  onClick={() => handleCart("remove", product)}
+                  onClick={(e) => handleCart(e, "remove", product)}
                 >
                   &times;
                 </button>
-                <button onClick={() => handleCart("dec", (product = product))}>-</button>
-                <button onClick={() => handleCart("inc", (product = product))}>+</button>
+                <button onClick={(e) => handleCart(e, "dec", product)}>-</button>
+                <button onClick={(e) => handleCart(e, "inc", product)}>+</button>
               </div>
             ))
           ) : (

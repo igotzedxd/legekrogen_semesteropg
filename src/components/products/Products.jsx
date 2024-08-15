@@ -17,17 +17,12 @@ function Products() {
     <>
       <div className={styles.productContainer}>
         {products?.map((product, index) => (
-          <ProductCard key={index} id={product._id} product={product} />
-        ))}
-      </div>
-      <MyFavorites />
-      <div className={styles.productContainer}>
-        {products?.map((product, index) => (
           <NavLink to={`/produkter/${product._id}`} key={index}>
             <ProductCard id={product._id} product={product} />
           </NavLink>
         ))}
       </div>
+      <MyFavorites />
     </>
   );
 }
