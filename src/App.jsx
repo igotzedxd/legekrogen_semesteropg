@@ -5,6 +5,7 @@ import Faq from "./pages/faq/FAQ";
 import Club from "./pages/club/Club";
 import Layout from "./Layout";
 import "./App.css";
+import { ContextProvider } from "./context/AppContext";
 
 function App() {
   const routes = useRoutes([
@@ -42,7 +43,7 @@ function App() {
     },
   ]);
 
-  return <>{routes}</>;
+  return <><ContextProvider>{routes}</ContextProvider></>;
 }
 
 export default App;

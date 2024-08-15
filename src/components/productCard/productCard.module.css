@@ -40,7 +40,14 @@
   padding: 10px;
 }
 
-.likeButton {
+.likeButton, .cartButton {
   background-color: transparent;
   border: none;
+  color: white;
+}
+
+.cartButton{
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 10px;
 }
