@@ -39,3 +39,28 @@
   font-size: 1.6rem;
   margin-bottom: 1rem;
 }
+
+.cartButton {
+  border: 1px solid black;
+  background: white;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.cartButton:hover {
+  background-color: white;
+  color: #9478a7;
+}
+
+.cartCount {
+  font-size: 1.7rem;
+  color: black;
+  font-weight: 500;
+}
+
+.cartDiv {
+  width: 200px;
+  display: flex;
+  gap: 25px;
+}
