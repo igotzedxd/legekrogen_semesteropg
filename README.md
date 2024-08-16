@@ -52,4 +52,4 @@
     - react-html-parser
         $ npm install html-react-parser
     - react-multi-carousel
-        $ npm install 
+        $ npm install  react-multi-carousel
