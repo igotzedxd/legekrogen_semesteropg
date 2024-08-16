@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import styles from "./header.module.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaRegTrashCan, FaXmark } from "react-icons/fa6";
@@ -19,6 +19,12 @@ function Header() {
     setActiveCart((prev) => !prev);
   }
 
+  // Calculate the total price
+  const totalPrice = cart.reduce(
+    (total, product) => total + product.price * product.count,
+    0
+  );
+
   return (
     <div>
       <div className={styles.container}>
@@ -30,7 +36,11 @@ function Header() {
           <span className={styles.cartCount}>{cart.length}</span>
         </div>
         <div className={styles.burgerMenu}>
-          {!activeBM ? <RxHamburgerMenu onClick={navMenu} /> : <FaXmark onClick={navMenu} />}
+          {!activeBM ? (
+            <RxHamburgerMenu onClick={navMenu} />
+          ) : (
+            <FaXmark onClick={navMenu} />
+          )}
         </div>
       </div>
       <ul className={`${styles.nav} ${activeBM ? styles.show : ""}`}>
@@ -48,29 +58,57 @@ function Header() {
       </ul>
       {activeCart && (
         <div className={styles.cartDropdown}>
-          {cart.length > 0 && <FaRegTrashCan onClick={(e) => handleCart(e, "clear")} />}
-
+          {cart.length > 0 && (
+            <div className={styles.clearCartContainer}>
+              <FaRegTrashCan
+                className={styles.clearCartIcon}
+                onClick={(e) => handleCart(e, "clear")}
+              />
+            </div>
+          )}
           {cart.length > 0 ? (
-            cart.map((product, index) => (
-              <div key={index} className={styles.cartItem}>
-                <img src={product.image} alt={product.name} className={styles.cartItemImage} />
-                <div className={styles.cartItemDetails}>
-                  <p>{product.name}</p>
-                  <p>{product.price} kr</p>
+            <>
+              {cart.map((product, index) => (
+                <div key={index} className={styles.cartItem}>
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className={styles.cartItemImage}
+                  />
+                  <div className={styles.cartItemDetails}>
+                    <p>{product.title}</p>
+                    <p>{product.price * product.count} kr</p>
+                  </div>
                   <p>{product.count}</p>
+                  <button
+                    className={styles.incButton}
+                    onClick={(e) => handleCart(e, "inc", product)}
+                  >
+                    +
+                  </button>
+                  <button
+                    className={styles.decButton}
+                    onClick={(e) => handleCart(e, "dec", product)}
+                  >
+                    -
+                  </button>
+                  <button
+                    className={styles.removeButton}
+                    onClick={(e) => handleCart(e, "remove", product)}
+                  >
+                    &times;
+                  </button>
                 </div>
-                <button
-                  className={styles.removeButton}
-                  onClick={(e) => handleCart(e, "remove", product)}
-                >
-                  &times;
-                </button>
-                <button onClick={(e) => handleCart(e, "dec", product)}>-</button>
-                <button onClick={(e) => handleCart(e, "inc", product)}>+</button>
+              ))}
+              <div className={styles.checkoutContainer}>
+                <button className={styles.checkoutButton}>Til Checkout</button>
+                <p>
+                  Pris i alt: <br /> {totalPrice} kr
+                </p>
               </div>
-            ))
+            </>
           ) : (
-            <p>Cart is empty</p>
+            <p>Kurven er tom</p>
           )}
         </div>
       )}
