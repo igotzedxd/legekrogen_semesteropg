@@ -14,7 +14,7 @@ function Footer() {
           </span>
           <span>
             <FaPhone />
-            <p>+45 23 45 67 89</p>
+            <span>+45 23 45 67 89</span>
           </span>
         </div>
         <div className={styles.socials}>

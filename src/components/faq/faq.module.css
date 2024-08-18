@@ -12,11 +12,10 @@
 .faq {
   position: relative;
   min-width: 350px;
-  min-height: 120px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  padding: 24px 40px;
+  padding: 40px 40px;
   border: 1px solid rgb(190, 190, 190);
   border-radius: 1rem;
   gap: 1rem;
@@ -79,6 +78,8 @@ li {
 
   .faq {
     width: 350px;
+    min-height: 120px;
+    padding: 24px 40px;
     flex: 0;
   }
 }
