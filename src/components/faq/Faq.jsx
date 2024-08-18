@@ -25,32 +25,39 @@ function Faq() {
     return parse(modifiedContent);
   };
 
-  if (error) {
-    return <p className={styles.error}>Error: {error.message}</p>;
-  }
+  if (error) <p className={styles.error}>Error: {error.message}</p>;
 
   return (
     <div className={styles.container}>
-      {questions ? (
-        questions.map((q) => (
-          <div key={q._id} onClick={() => toggleOpenId(q._id)} className={styles.faq}>
-            {/* render question */}
-            <p className={styles.q}>{q.question}</p>
-            {/* line to seperate Q and A (::before and ::after styling and keyframes*/}
-            {openIds.includes(q._id) && <p className={styles.line}></p>}
-            {/* instead of styling display none, we just don't render it unless the container is clicked */}
-            {openIds.includes(q._id) && <div className={styles.a}>{addDashesToText(q.answer)}</div>}
-            {/* show up or down arrow depending if the container is clicked */}
-            {openIds.includes(q._id) ? (
-              <IoIosArrowUp className={styles.arrow} />
-            ) : (
-              <IoIosArrowDown className={styles.arrow} />
-            )}
-          </div>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
+      <div className={styles.inner}>
+        {questions ? (
+          questions.map((q) => (
+            <div key={q._id} onClick={() => toggleOpenId(q._id)} className={styles.faq}>
+              {/* render question */}
+              <p className={styles.q}>
+                <span>{q.question}</span>
+                {/* show up or down arrow depending if the container is clicked */}
+                {openIds.includes(q._id) ? (
+                  <IoIosArrowUp size={30} className={styles.arrow} />
+                ) : (
+                  <IoIosArrowDown size={30} className={styles.arrow} />
+                )}
+              </p>
+              {/* line to seperate Q and A (::before and ::after styling and keyframes*/}
+              {openIds.includes(q._id) && (
+                <div className={styles.lines}>
+                  <p className={styles.line}></p>
+                  <p className={styles.line}></p>
+                </div>
+              )}
+              {/* instead of styling display none, we just don't render it unless the container is clicked */}
+              {openIds.includes(q._id) && <p className={styles.a}>{addDashesToText(q.answer)}</p>}
+            </div>
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 }
