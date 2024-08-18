@@ -13,7 +13,7 @@ function App() {
     {
       path: "/",
       element: (
-        <Layout>
+        <Layout page={"home"}>
           <Home />
         </Layout>
       ),
@@ -37,7 +37,7 @@ function App() {
     {
       path: "/kundeklub",
       element: (
-        <Layout page={"club"}>
+        <Layout>
           <Club />
         </Layout>
       ),
@@ -48,7 +48,11 @@ function App() {
     },
   ]);
 
-  return <><ContextProvider>{routes}</ContextProvider></>;
+  return (
+    <>
+      <ContextProvider>{routes}</ContextProvider>
+    </>
+  );
 }
 
 export default App;

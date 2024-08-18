@@ -8,11 +8,7 @@ function Hero({ src, heading, text, largeText, page }) {
         <div className={styles.container}>
           <img src={src} alt="hero" className={styles.hero} />
           <div
-            style={
-              page === "produkter"
-                ? { height: "33%", transform: "translateY(120%)" }
-                : {}
-            }
+            style={page !== "home" ? { height: "33%", transform: "translateY(120%)" } : {}}
             className={styles.inner}
           >
             <h2 className="cursive">{heading}</h2>
