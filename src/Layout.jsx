@@ -15,7 +15,7 @@ function Layout({ children, page }) {
         <Hero />
       </div>
       {children}
-      {page === "club" ? <NewsletterForm /> : <NewsletterContainer />}
+      {page === "" ? <NewsletterForm /> : <NewsletterContainer />}
       <Footer />
     </div>
   );

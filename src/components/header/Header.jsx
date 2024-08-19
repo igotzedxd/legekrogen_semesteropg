@@ -48,12 +48,7 @@ function Header() {
           <a href="/produkter">Produkter</a>
         </li>
         <li>
-          <a href="/faq">FAQ</a>
-        </li>
-        <li>
-          <a href="/klubben">
-            <p>Klubben</p>
-          </a>
+          <a href="/FAQ">FAQ</a>
         </li>
       </ul>
       {activeCart && (
