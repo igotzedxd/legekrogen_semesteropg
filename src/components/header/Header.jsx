@@ -5,11 +5,14 @@ import { FaRegTrashCan, FaXmark } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { AppContext } from "../../context/AppContext";
 import { NavLink } from "react-router-dom";
+import CartCounter from "../cartCounter/CartCounter";
+
 
 function Header() {
   const [activeBM, setActiveBM] = useState(false);
   const [activeCart, setActiveCart] = useState(false);
   const { cart, handleCart } = useContext(AppContext);
+  
 
   function navMenu(event) {
     setActiveBM((prev) => !prev);
@@ -75,25 +78,7 @@ function Header() {
                     <p>{product.title}</p>
                     <p>{product.price * product.count} kr</p>
                   </div>
-                  <p>{product.count}</p>
-                  <button
-                    className={styles.incButton}
-                    onClick={(e) => handleCart(e, "inc", product)}
-                  >
-                    +
-                  </button>
-                  <button
-                    className={styles.decButton}
-                    onClick={(e) => handleCart(e, "dec", product)}
-                  >
-                    -
-                  </button>
-                  <button
-                    className={styles.removeButton}
-                    onClick={(e) => handleCart(e, "remove", product)}
-                  >
-                    &times;
-                  </button>
+                  <CartCounter product={product}/>
                 </div>
               ))}
               <div className={styles.checkoutContainer}>
