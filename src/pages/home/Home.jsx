@@ -5,7 +5,6 @@ import styles from "./home.module.css";
 function Home() {
   return (
     <>
-      <Reviews />
       <div className={styles.contentDiv}>
         <div className={styles.contentHeaderDiv}>
           <h2 className={`cursive ${styles.altVores} `}>Et udpluk af vores</h2>
@@ -14,6 +13,7 @@ function Home() {
 
         <Products rec={true} />
       </div>
+      <Reviews />
     </>
   );
 }
