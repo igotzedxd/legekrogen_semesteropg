@@ -2,8 +2,8 @@ import { useRoutes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Produkter from "./pages/produkter/Produkter";
 import EnkeltProdukt from "./pages/enkeltProdukt/EnkeltProdukt";
+import FAQ from "./pages/faq/FAQ";
 import Faq from "./pages/faq/FAQ";
-import Club from "./pages/klubben/Klubben";
 import Layout from "./Layout";
 import "./App.css";
 import { ContextProvider } from "./context/AppContext";
@@ -27,18 +27,10 @@ function App() {
       ),
     },
     {
-      path: "/faq",
+      path: "/FAQ",
       element: (
         <Layout>
-          <Faq />
-        </Layout>
-      ),
-    },
-    {
-      path: "/klubben",
-      element: (
-        <Layout>
-          <Club />
+          <FAQ />
         </Layout>
       ),
     },

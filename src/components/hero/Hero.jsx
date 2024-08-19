@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
 import styles from "./hero.module.css";
+import { useLocation } from "react-router-dom";
 
 const pages = {
   forsiden: {
     src: "/heros/forsiden.jpg",
     heading: "At lege er at leve",
     text: "Her hos os har vi et stort udvalg af legetøj i høj kvalitet",
-    page: "",
+    page: "forsiden",
   },
   klubben: {
     src: "/heros/klub.jpg",
@@ -28,8 +28,19 @@ const pages = {
   },
 };
 
-function Hero({ pageName, largeText }) {
+function Hero({ largeText }) {
+  // Use useLocation to get the current path
+  const location = useLocation();
+
+  // Extract the relevant part of the path to use as the slug/pageName
+  const pathSegments = location.pathname.split("/").filter(Boolean);
+  const pageName = pathSegments[0] || "forsiden"; // Default to 'forsiden' if at root
+
+  // Get the data for the corresponding page
   const pageData = pages[pageName];
+
+  // Debugging output to check what pageData is being used
+  console.log(pageData);
 
   return (
     <>
@@ -38,7 +49,7 @@ function Hero({ pageName, largeText }) {
           <img src={pageData.src} alt="hero" className={styles.hero} />
           <div
             style={
-              pageData.page === "products"
+              pageName !== "forsiden"
                 ? { height: "33%", transform: "translateY(120%)" }
                 : {}
             }
