@@ -13,6 +13,7 @@ function Header() {
 
   function navMenu(event) {
     setActiveBM((prev) => !prev);
+    setActiveCart(false);
   }
 
   function toggleCart() {
@@ -28,7 +29,7 @@ function Header() {
   return (
     <div>
       <div className={styles.container}>
-        <NavLink className={styles.logo} to={"/"}>
+        <NavLink className={styles.logo} to={"/"} onClick={() => setActiveBM(false)}>
           <img src="/logo/legekrogen_logo.png" alt="" />
         </NavLink>{" "}
         <div className={styles.shoppingCart} onClick={toggleCart}>
@@ -51,7 +52,7 @@ function Header() {
           <a href="/FAQ">FAQ</a>
         </li>
       </ul>
-      {activeCart && (
+      {activeCart && !activeBM && (
         <div className={styles.cartDropdown}>
           {cart.length > 0 && (
             <div className={styles.clearCartContainer}>

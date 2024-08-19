@@ -3,6 +3,7 @@ import Home from "./pages/home/Home";
 import Produkter from "./pages/produkter/Produkter";
 import EnkeltProdukt from "./pages/enkeltProdukt/EnkeltProdukt";
 import FAQ from "./pages/faq/FAQ";
+import Faq from "./pages/faq/FAQ";
 import Layout from "./Layout";
 import "./App.css";
 import { ContextProvider } from "./context/AppContext";
