@@ -12,15 +12,10 @@ function Layout({ children, page }) {
       <div className={styles.top}>
         <DeliveryMessage />
         <Header />
-        <Hero
-          src={"/heros/forsiden.jpg"}
-          heading={"At lege er at leve"}
-          text={"Her hos os har vi et stort udvalg af legetøj i høj kvalitet"}
-          page={""}
-        />
+        <Hero />
       </div>
       {children}
-      {page === "club" ? <NewsletterForm /> : <NewsletterContainer />}
+      {page === "" ? <NewsletterForm /> : <NewsletterContainer />}
       <Footer />
     </div>
   );
