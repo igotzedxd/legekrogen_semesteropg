@@ -1,13 +1,14 @@
-import { useState, useEffect, useContext } from "react";
-import styles from "./products.module.css";
-import useFetch from "../hooks/useFetch";
-import ProductCard from "../productCard/ProductCard";
-import { AppContext } from "../../context/AppContext";
-import MyFavorites from "../myFavorites/MyFavorites";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import ProductCard from "../productCard/ProductCard";
+import MyFavorites from "../myFavorites/MyFavorites";
+import styles from "./products.module.css";
+import { AppContext } from "../../context/AppContext";
 
-function Products() {
-  const { data: products, error } = useContext(AppContext);
+function Products({ rec }) {
+  const { data, error } = useContext(AppContext);
+
+  const products = rec ? data?.filter((product) => product.recommended) : data;
 
   if (error) {
     return <div>{error}</div>;
