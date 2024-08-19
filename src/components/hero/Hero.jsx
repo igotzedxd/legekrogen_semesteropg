@@ -8,12 +8,6 @@ const pages = {
     text: "Her hos os har vi et stort udvalg af legetøj i høj kvalitet",
     page: "forsiden",
   },
-  klubben: {
-    src: "/heros/klub.jpg",
-    heading: "Bliv medlem af vores klub",
-    text: "Få adgang til eksklusive tilbud og nyheder",
-    page: "klubben",
-  },
   produkter: {
     src: "/heros/produkter.jpg",
     heading: "Vores produkter",

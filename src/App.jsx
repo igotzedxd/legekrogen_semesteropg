@@ -13,7 +13,7 @@ function App() {
     {
       path: "/",
       element: (
-        <Layout>
+        <Layout page={"home"}>
           <Home />
         </Layout>
       ),
@@ -30,7 +30,7 @@ function App() {
       path: "/FAQ",
       element: (
         <Layout>
-          <FAQ />
+          <Faq />
         </Layout>
       ),
     },

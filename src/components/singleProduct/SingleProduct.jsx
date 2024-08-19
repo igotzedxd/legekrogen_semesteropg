@@ -18,16 +18,13 @@ function SingleProduct({ product }) {
         <div className={styles.info}>
           <h2>{product.title}</h2>
           <p>{product.description}</p>
-          <p>Price: {product.price}</p>
-        </div>
-        <div className={styles.cartDiv}>
+          <p>Pris: {product.price},-</p>
           <button
             onClick={(e) => handleCart(e, "add", (product = product))}
             className={styles.cartButton}
           >
-            Add to cart
+            Tilføj
           </button>
-          {cartItem && <p className={styles.cartCount}>{cartItem.count}</p>}
         </div>
       </div>
     </div>

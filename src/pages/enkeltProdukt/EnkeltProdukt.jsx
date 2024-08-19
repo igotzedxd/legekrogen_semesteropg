@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useState, useContext } from "react";
 import useFetch from "../../hooks/useFetch";
 import styles from "./enkeltProdukt.module.css";
 
@@ -8,10 +9,11 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import SingleProduct from "../../components/singleProduct/SingleProduct";
 import CarouselComp from "../../components/carouselComp/CarouselComp";
+import { AppContext } from "../../context/AppContext";
 
 function EnkeltProdukt() {
   const { id } = useParams();
-  const { data: products, error } = useFetch("https://legekrogen.webmcdm.dk/products");
+  const { data: products, error } = useContext(AppContext);
 
   if (error) {
     return <p>Error: {error.message}</p>;

@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 40dvh;
+  min-height: 40dvh;
   background: #355674;
   color: white;
   display: flex;
