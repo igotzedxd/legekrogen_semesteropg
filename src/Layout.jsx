@@ -3,10 +3,9 @@ import Header from "./components/header/Header";
 import Hero from "./components/hero/Hero";
 import Footer from "./components/footer/Footer";
 import styles from "./layout.module.css";
-import NewsletterForm from "./components/newsletterForm/NewsletterForm";
 import NewsletterContainer from "./components/newsletterContainer/NewsletterContainer";
 
-function Layout({ children, page }) {
+function Layout({ children }) {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -15,7 +14,7 @@ function Layout({ children, page }) {
         <Hero />
       </div>
       {children}
-      {page === "" ? <NewsletterForm /> : <NewsletterContainer />}
+      <NewsletterContainer />
       <Footer />
     </div>
   );

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import styles from "./faq.module.css";
 import Faq from "../../components/faq/Faq";
 
