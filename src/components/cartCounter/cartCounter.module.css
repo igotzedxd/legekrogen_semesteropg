@@ -1,0 +1,24 @@
+.counterContainer > button {
+    width: 35px;
+    height: 35px;
+    border: 0.5px solid grey;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin: 0 2px;
+    
+  }
+  
+  .incButton{
+    background-color: rgba(66, 123, 66, 0.81);
+    color: white;
+  }
+  
+  .decButton{
+    background-color: rgb(195, 102, 102);
+    color: white;
+  }
+  
+  .removeButton{
+    background-color: rgba(39, 37, 37, 0.387);
+    color: white;
+  }

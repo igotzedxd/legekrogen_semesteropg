@@ -1,6 +1,7 @@
 import styles from "../productCard/productCard.module.css";
 import { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import CartCounter from "../cartCounter/CartCounter";
 
 const ProductCard = ({ product }) => {
   const [liked, setLiked] = useState(false);
@@ -66,13 +67,7 @@ const ProductCard = ({ product }) => {
           </button>
         </div>
         <div className={styles.cartDiv}>
-          <button
-            onClick={(e) => handleCart(e, "add", (product = product))}
-            className={styles.cartButton}
-          >
-            Add to cart
-          </button>
-          {cartItem && <p className={styles.cartCount}>{cartItem.count}</p>}
+          <CartCounter product={product}/>
         </div>
       </div>
     </div>

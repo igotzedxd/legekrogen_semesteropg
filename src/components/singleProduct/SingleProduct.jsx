@@ -1,14 +1,8 @@
-import { useEffect, useContext, useState } from "react";
 import styles from "./singleProduct.module.css";
-import { AppContext } from "../../context/AppContext";
+import CartCounter from "../cartCounter/CartCounter";
 
 function SingleProduct({ product }) {
-  const { cart, handleCart } = useContext(AppContext);
-  const [cartItem, setCartItem] = useState({});
-
-  useEffect(() => {
-    setCartItem(cart.find((item) => item._id === product._id));
-  }, [cart, product]);
+  
   return (
     <div className={styles.productContainer}>
       <div className={styles.inner}>
@@ -19,12 +13,7 @@ function SingleProduct({ product }) {
           <h2>{product.title}</h2>
           <p>{product.description}</p>
           <p>Pris: {product.price} kr</p>
-          <button
-            onClick={(e) => handleCart(e, "add", (product = product))}
-            className={styles.cartButton}
-          >
-            Tilføj
-          </button>
+          <CartCounter product={product} />
         </div>
       </div>
     </div>
