@@ -30,7 +30,11 @@ function Header() {
           <span className={styles.cartCount}>{cart.length}</span>
         </div>
         <div className={styles.burgerMenu}>
-          {!activeBM ? <RxHamburgerMenu onClick={navMenu} /> : <FaXmark onClick={navMenu} />}
+          {!activeBM ? (
+            <RxHamburgerMenu onClick={navMenu} />
+          ) : (
+            <FaXmark onClick={navMenu} />
+          )}
         </div>
       </div>
       <ul className={`${styles.nav} ${activeBM ? styles.show : ""}`}>
@@ -41,19 +45,25 @@ function Header() {
           <a href="/faq">FAQ</a>
         </li>
         <li>
-          <a href="/kundeklub">
-            <p>Nyhedsbrev</p>
+          <a href="/klubben">
+            <p>Klubben</p>
           </a>
         </li>
       </ul>
       {activeCart && (
         <div className={styles.cartDropdown}>
-          {cart.length > 0 && <FaRegTrashCan onClick={(e) => handleCart(e, "clear")} />}
+          {cart.length > 0 && (
+            <FaRegTrashCan onClick={(e) => handleCart(e, "clear")} />
+          )}
 
           {cart.length > 0 ? (
             cart.map((product, index) => (
               <div key={index} className={styles.cartItem}>
-                <img src={product.image} alt={product.name} className={styles.cartItemImage} />
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className={styles.cartItemImage}
+                />
                 <div className={styles.cartItemDetails}>
                   <p>{product.name}</p>
                   <p>{product.price} kr</p>
@@ -65,8 +75,12 @@ function Header() {
                 >
                   &times;
                 </button>
-                <button onClick={(e) => handleCart(e, "dec", product)}>-</button>
-                <button onClick={(e) => handleCart(e, "inc", product)}>+</button>
+                <button onClick={(e) => handleCart(e, "dec", product)}>
+                  -
+                </button>
+                <button onClick={(e) => handleCart(e, "inc", product)}>
+                  +
+                </button>
               </div>
             ))
           ) : (
