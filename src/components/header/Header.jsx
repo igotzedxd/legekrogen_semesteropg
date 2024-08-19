@@ -51,8 +51,8 @@ function Header() {
           <a href="/faq">FAQ</a>
         </li>
         <li>
-          <a href="/kundeklub">
-            <p>Nyhedsbrev</p>
+          <a href="/klubben">
+            <p>Klubben</p>
           </a>
         </li>
       </ul>
