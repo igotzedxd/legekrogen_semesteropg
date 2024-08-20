@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import useFetch from "../hooks/useFetch";
 
 export const AppContext = createContext();
@@ -6,12 +6,9 @@ export const AppContext = createContext();
 export const ContextProvider = ({ children }) => {
   const { data, error } = useFetch("https://legekrogen.webmcdm.dk/products");
 
-  // grab cart from local storage or empty array
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cartProducts")) || []);
-
-  // function that takes types
-  const handleCart = (e, type, product) => {
-    e.preventDefault();
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cartProducts")) || []
+  );
 
   const handleCart = (e, type, product, newCount) => {
     if (e) e.preventDefault();
@@ -62,11 +59,39 @@ export const ContextProvider = ({ children }) => {
       return updatedCart;
     });
   };
+  
+  
+  
 
-  // handleCart END
-
-  // return the provider with the value prop
   return (
-    <AppContext.Provider value={{ data, cart, handleCart, error }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ data, cart, handleCart }}>
+      {children}
+    </AppContext.Provider>
   );
 };
+
+// function for each
+/*   const addToCart = (product) => {
+    const productInCart = cart.find((p) => p._id === product._id);
+
+    if (!productInCart) {
+      // Add the product to the cart with count: 1
+      const newProduct = { ...product, count: 1 };
+      const updatedCart = [...cart, newProduct];
+      setCart(updatedCart);
+      localStorage.setItem("cartProducts", JSON.stringify(updatedCart));
+    } else {
+      // Increase count by 1 if the product already exists in the cart
+      const updatedCart = cart.map(
+        (p) => p._id === product._id && { ...p, count: p.count + 1 }
+      );
+      setCart(updatedCart);
+      localStorage.setItem("cartProducts", JSON.stringify(updatedCart));
+    }
+  };
+
+  function removeFromCart(product) {
+    const updatedCart = cart.filter((item) => item._id !== product._id);
+    setCart(updatedCart);
+    localStorage.setItem("cartProducts", JSON.stringify(updatedCart));
+  } */
