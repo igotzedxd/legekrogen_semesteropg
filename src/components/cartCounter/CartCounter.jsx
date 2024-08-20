@@ -14,9 +14,17 @@ function CartCounter({ product }) {
   }, [item]);
 
   const handleInputChange = (e) => {
-    const value = Math.max(0, parseInt(e.target.value, 10)); // Prevent negative values
-    setInputCount(value);
+    let value = e.target.value;
+  
+    value = value === "" ? "0" :
+            (value.length > 1 && value[0] === "0") ? value.slice(1) :
+            value;
+  
+    const newValue = !isNaN(value) && Number(value) >= 0 ? value : "0";
+  
+    setInputCount(newValue);
   };
+  
 
   const handleUpdateClick = (e) => {
     e.stopPropagation();
