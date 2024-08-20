@@ -1,4 +1,3 @@
-import { FaF, FaP } from "react-icons/fa6";
 import styles from "./footer.module.css";
 import { FaPhone, FaEnvelope, FaFacebook, FaInstagram } from "react-icons/fa";
 

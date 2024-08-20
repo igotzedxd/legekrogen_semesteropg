@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 import useFetch from "../hooks/useFetch";
 
 // Create a Context
@@ -8,6 +8,7 @@ export const AppContext = createContext();
 export const ContextProvider = ({ children }) => {
   const { data, error } = useFetch("https://legekrogen.webmcdm.dk/products");
 
+  // grab cart from local storage or empty array
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cartProducts")) || []);
 
   // function that takes types
@@ -26,58 +27,31 @@ export const ContextProvider = ({ children }) => {
         type === "add"
           ? productInCart
             ? prevCart.map((item) =>
-                item._id === product._id ? { ...item, count: (item.count || 0) + 1 } : item
+                item._id === product._id ? { ...item, count: item.count + 1 } : item
               )
             : [...prevCart, { ...product, count: 1 }]
           : type === "remove"
           ? prevCart.filter((item) => item._id !== product._id)
-          : type === "inc"
-          ? prevCart.map((item) =>
-              item._id === product._id ? { ...item, count: (item.count || 0) + 1 } : item
-            )
           : type === "dec"
           ? prevCart.reduce((acc, item) => {
-              if (item._id === product._id) {
-                if (item.count > 1) {
-                  acc.push({ ...item, count: item.count - 1 });
-                }
-              } else {
-                acc.push(item);
-              }
-              return acc;
+              // acc is the accumulator. is it treated as an array.
+              return item._id === product._id
+                ? item.count > 1
+                  ? [...acc, { ...item, count: item.count - 1 }]
+                  : acc // if item found in cart initially had count: 1, it is not added to the new array and thus removed
+                : [...acc, item];
             }, [])
-          : prevCart; // type passed in doesnt match
+          : prevCart; // if type passed in for some reason doesn't match, return as is
 
+      // when we have updated the cart based on type, save it and return it to setCart
       localStorage.setItem("cartProducts", JSON.stringify(updatedCart));
       return updatedCart;
     });
   };
+  // handleCart END
 
-  return <AppContext.Provider value={{ data, cart, handleCart }}>{children}</AppContext.Provider>;
+  // return the provider with the value prop
+  return (
+    <AppContext.Provider value={{ data, cart, handleCart, error }}>{children}</AppContext.Provider>
+  );
 };
-
-// function for each
-/*   const addToCart = (product) => {
-    const productInCart = cart.find((p) => p._id === product._id);
-
-    if (!productInCart) {
-      // Add the product to the cart with count: 1
-      const newProduct = { ...product, count: 1 };
-      const updatedCart = [...cart, newProduct];
-      setCart(updatedCart);
-      localStorage.setItem("cartProducts", JSON.stringify(updatedCart));
-    } else {
-      // Increase count by 1 if the product already exists in the cart
-      const updatedCart = cart.map(
-        (p) => p._id === product._id && { ...p, count: p.count + 1 }
-      );
-      setCart(updatedCart);
-      localStorage.setItem("cartProducts", JSON.stringify(updatedCart));
-    }
-  };
-
-  function removeFromCart(product) {
-    const updatedCart = cart.filter((item) => item._id !== product._id);
-    setCart(updatedCart);
-    localStorage.setItem("cartProducts", JSON.stringify(updatedCart));
-  } */

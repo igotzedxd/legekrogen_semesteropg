@@ -18,16 +18,15 @@ function NewsletterContainer() {
 
   return (
     <div>
-        {formSubmitted ? (
-            <NewsletterMessage />
-        ) : showForm ? (
-            <NewsletterForm onSubmitSuccess={handleFormSubmitted}/>
-        ) : (
-            <NewsletterLink onClick={handleShowForm}/> 
-        )
-    }
+      {formSubmitted ? (
+        <NewsletterMessage />
+      ) : showForm ? (
+        <NewsletterForm onSubmitSuccess={handleFormSubmitted} />
+      ) : (
+        <NewsletterLink handleShowForm={handleShowForm} />
+      )}
     </div>
-  )
+  );
 }
 
 export default NewsletterContainer;

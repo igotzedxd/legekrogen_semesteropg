@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./faq.module.css";
-import useFetch from "../hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import parse from "html-react-parser";
 
@@ -25,7 +25,7 @@ function Faq() {
     return parse(modifiedContent);
   };
 
-  if (error) <p className={styles.error}>Error: {error.message}</p>;
+  if (error) console.log("error: ", error);
 
   return (
     <div className={styles.container}>
@@ -43,14 +43,14 @@ function Faq() {
                   <IoIosArrowDown size={30} className={styles.arrow} />
                 )}
               </p>
-              {/* line to seperate Q and A (::before and ::after styling and keyframes*/}
+              {/* line to seperate Q and A (animated with keyframes) */}
               {openIds.includes(q._id) && (
                 <div className={styles.lines}>
                   <p className={styles.line}></p>
                   <p className={styles.line}></p>
                 </div>
               )}
-              {/* instead of styling display none, we just don't render it unless the container is clicked */}
+              {/* instead of styling display none, we just don't render answer unless the container is clicked */}
               {openIds.includes(q._id) && <p className={styles.a}>{addDashesToText(q.answer)}</p>}
             </div>
           ))

@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
 import styles from "./carouselcomp.module.css";
-import { NavLink, Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 // carousel
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+
 function CarouselComp({ products }) {
+
+  // Responsive settings for the carousel
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -17,7 +18,7 @@ function CarouselComp({ products }) {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 4  ,
+      items: 4,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },

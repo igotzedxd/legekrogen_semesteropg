@@ -2,19 +2,16 @@ import { useContext } from "react";
 import styles from "./cartCounter.module.css";
 import { AppContext } from "../../context/AppContext";
 
-function CartCounter({product}) {
+function CartCounter({ product }) {
   const { cart, handleCart } = useContext(AppContext);
 
-  const item = cart.find((i) => i._id === product._id)
-  console.log(item)
+  const item = cart.find((i) => i._id === product._id);
+  console.log(item);
 
   return (
     <div className={styles.counterContainer}>
       <span>{item ? item.count : 0}</span>
-      <button
-        className={styles.incButton}
-        onClick={(e) => handleCart(e, !item ? "add" : "inc", product)}
-      >
+      <button className={styles.incButton} onClick={(e) => handleCart(e, "add", product)}>
         +
       </button>
       <button
@@ -24,10 +21,7 @@ function CartCounter({product}) {
       >
         -
       </button>
-      <button
-        className={styles.removeButton}
-        onClick={(e) => handleCart(e, "remove", product)}
-      >
+      <button className={styles.removeButton} onClick={(e) => handleCart(e, "remove", product)}>
         &times;
       </button>
     </div>
