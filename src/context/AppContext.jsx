@@ -14,14 +14,9 @@ export const ContextProvider = ({ children }) => {
   // function that takes types
   const handleCart = (e, type, product) => {
     e.preventDefault();
-    if (type === "clear") {
-      localStorage.setItem("cartProduct", JSON.stringify([]));
-      setCart([]);
-      return;
-    }
 
     setCart((prevCart) => {
-      const productInCart = prevCart.find((item) => item._id === product._id);
+      const productInCart = type !== "clear" && prevCart.find((item) => item._id === product._id);
 
       const updatedCart =
         type === "add"
@@ -41,6 +36,8 @@ export const ContextProvider = ({ children }) => {
                   : acc // if item found in cart initially had count: 1, it is not added to the new array and thus removed
                 : [...acc, item];
             }, [])
+          : type === "clear"
+          ? []
           : prevCart; // if type passed in for some reason doesn't match, return as is
 
       // when we have updated the cart based on type, save it and return it to setCart
