@@ -1,0 +1,26 @@
+.burgerMenu {
+    color: white;
+    font-size: 200%;
+    z-index: 999;
+  }
+  
+  
+  .nav {
+    display: none;
+  }
+  
+  .show {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: 2rem;
+    width: 100%;
+    height: 100vh;
+    background-color: #355674;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 990;
+    color: white;
+  }
+  
