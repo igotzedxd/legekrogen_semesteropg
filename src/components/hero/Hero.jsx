@@ -27,7 +27,7 @@ function Hero({ largeText }) {
   const location = useLocation();
 
   // Extract the relevant part of the path to use as the slug/pageName
-  const pathSegments = location.pathname.split("/").filter(Boolean);
+  const pathSegments = location.pathname.split("/").filter(Boolean); // Boolean filter removes empty strings
   const pageName = pathSegments[0] || "forsiden"; // Default to 'forsiden' if at root
 
   // Get the data for the corresponding page

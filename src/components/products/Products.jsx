@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProductCard from "../productCard/ProductCard";
 import MyFavorites from "../myFavorites/MyFavorites";
 import styles from "./products.module.css";
@@ -18,9 +18,9 @@ function Products({ rec }) {
     <>
       <div className={styles.productContainer}>
         {products?.map((product, index) => (
-          <NavLink to={`/produkter/${product._id}`} key={index}>
+          <Link to={`/produkter/${product._id}`} key={index}>
             <ProductCard id={product._id} product={product} />
-          </NavLink>
+          </Link>
         ))}
       </div>
       <MyFavorites />

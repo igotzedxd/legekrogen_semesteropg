@@ -42,11 +42,12 @@
           localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
         }
 
-        return newLikedStatus;
-      });
-      const event = new Event("favoritesUpdated");
-      window.dispatchEvent(event);
-    };
+      return newLikedStatus;
+    });
+    const event = new Event("favoritesUpdated");
+    // Dispatch the event
+    window.dispatchEvent(event);
+  };
 
     return (
       <div className={styles.productDiv}>

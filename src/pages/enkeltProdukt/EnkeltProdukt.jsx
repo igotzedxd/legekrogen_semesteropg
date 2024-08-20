@@ -1,7 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState, useContext } from "react";
-import useFetch from "../../hooks/useFetch";
-import styles from "./enkeltProdukt.module.css";
+import { useContext } from "react";
 
 // components
 import DeliveryMessage from "../../components/deliveryMessage/DeliveryMessage";

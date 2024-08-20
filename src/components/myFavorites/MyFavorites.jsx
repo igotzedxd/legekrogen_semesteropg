@@ -1,10 +1,10 @@
-import useFetch from "../hooks/useFetch";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styles from "../myFavorites/myFavorites.module.css";
 import { NavLink } from "react-router-dom";
+import { AppContext } from "../../context/AppContext";
 
 const MyFavorites = () => {
-  const { data } = useFetch("https://legekrogen.webmcdm.dk/products");
+  const { data } = useContext(AppContext);
   const [likedIDArray, setlikedIDArray] = useState([]);
 
   useEffect(() => {
@@ -14,8 +14,10 @@ const MyFavorites = () => {
       updateLikedArray();
     };
 
+    //listens for event to update liked array
     window.addEventListener("favoritesUpdated", handleCustomEvent);
 
+    //removes event listener if event becomes unmounted
     return () => {
       window.removeEventListener("favoritesUpdated", handleCustomEvent);
     };
