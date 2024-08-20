@@ -1,29 +1,82 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import styles from "./cartCounter.module.css";
 import { AppContext } from "../../context/AppContext";
 
 function CartCounter({ product }) {
   const { cart, handleCart } = useContext(AppContext);
-
   const item = cart.find((i) => i._id === product._id);
-  console.log(item);
+
+  const [inputCount, setInputCount] = useState(item ? item.count : 0);
+
+  useEffect(() => {
+    // Update inputCount whenever item changes
+    setInputCount(item ? item.count : 0);
+  }, [item]);
+
+  const handleInputChange = (e) => {
+    const value = Math.max(0, parseInt(e.target.value, 10)); // Prevent negative values
+    setInputCount(value);
+  };
+
+  const handleUpdateClick = (e) => {
+    e.stopPropagation();
+    handleCart(e, "updateCount", product, inputCount);
+  };
 
   return (
-    <div className={styles.counterContainer}>
-      <span>{item ? item.count : 0}</span>
-      <button className={styles.incButton} onClick={(e) => handleCart(e, "add", product)}>
-        +
-      </button>
-      <button
-        className={styles.decButton}
-        onClick={(e) => handleCart(e, "dec", product)}
-        disabled={!item}
-      >
-        -
-      </button>
-      <button className={styles.removeButton} onClick={(e) => handleCart(e, "remove", product)}>
-        &times;
-      </button>
+    <div className={styles.cartCounterContainer}>
+      <div className={styles.counterContainer}>
+        <span>{item ? item.count : 0}</span>
+        <button
+          className={styles.incButton}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCart(e, !item ? "add" : "inc", product);
+          }}
+        >
+          +
+        </button>
+        <button
+          className={styles.decButton}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCart(e, "dec", product);
+          }}
+          disabled={!item}
+        >
+          -
+        </button>
+        <button
+          className={styles.removeButton}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCart(e, "remove", product);
+          }}
+        >
+          &times;
+        </button>
+      </div>
+      <div className={styles.inputContainer}>
+        <input
+          className={styles.inputField}
+          type="number"
+          value={inputCount}
+          onChange={handleInputChange}
+          onClick={(e) => e.preventDefault()}
+        />
+        <button className={styles.updateButton} onClick={handleUpdateClick}>
+          Opdater
+        </button>
+        <button
+          className={styles.removeButtonDT}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCart(e, "remove", product);
+          }}
+        >
+          &times;
+        </button>
+      </div>
     </div>
   );
 }

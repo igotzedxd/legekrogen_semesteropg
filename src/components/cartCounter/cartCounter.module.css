@@ -1,24 +1,78 @@
+.cartCounterContainer {
+  display: flex;
+  align-items: center;
+}
+
+.counterContainer {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .counterContainer {
+    display: none;
+  }
+}
+
+.inputContainer {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .inputContainer {
+    display: block;
+  }
+}
+
+.inputField {
+  width: 60px;
+  padding: 5px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.updateButton {
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  background-color: #355674;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .counterContainer > button {
-    width: 35px;
-    height: 35px;
-    border: 0.5px solid grey;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin: 0 2px;
-    
-  }
-  
-  .incButton{
-    background-color: rgba(66, 123, 66, 0.81);
-    color: white;
-  }
-  
-  .decButton{
-    background-color: rgb(195, 102, 102);
-    color: white;
-  }
-  
-  .removeButton{
-    background-color: rgba(39, 37, 37, 0.387);
-    color: white;
-  }
+  width: 35px;
+  height: 35px;
+  border: 0.5px solid grey;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 0 2px;
+}
+
+.incButton {
+  background-color: rgba(66, 123, 66, 0.81);
+  color: white;
+}
+
+.decButton {
+  background-color: rgb(195, 102, 102);
+  color: white;
+}
+
+.removeButton {
+  background-color: rgba(39, 37, 37, 0.387);
+  color: white;
+}
+
+.removeButtonDT {
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  background-color: #355674;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
