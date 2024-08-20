@@ -14,8 +14,10 @@ const MyFavorites = () => {
       updateLikedArray();
     };
 
+    //listens for event to update liked array
     window.addEventListener("favoritesUpdated", handleCustomEvent);
 
+    //removes event listener if event becomes unmounted
     return () => {
       window.removeEventListener("favoritesUpdated", handleCustomEvent);
     };

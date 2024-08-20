@@ -7,7 +7,9 @@ function NewsletterForm({ onSubmitSuccess }) {
   const [mailValue, setMailValue] = useState("");
   const [msgValue, setMsgValue] = useState("");
   const { post, loading, error, data } = usePost("https://legekrogen.webmcdm.dk/subscribe");
+  //nameRef, referring to first input field, ref added in input "ref="
   const nameRef = useRef(null);
+  //formRef, referring to the form itself
   const formRef = useRef(null);
 
   const handleSubmit = (e) => {
@@ -29,6 +31,7 @@ function NewsletterForm({ onSubmitSuccess }) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            //sets first input into focus, so you don't have to manually click
             nameRef.current.focus();
           }
         });

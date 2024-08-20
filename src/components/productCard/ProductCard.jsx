@@ -45,6 +45,7 @@ const ProductCard = ({ product }) => {
       return newLikedStatus;
     });
     const event = new Event("favoritesUpdated");
+    // Dispatch the event
     window.dispatchEvent(event);
   };
 
