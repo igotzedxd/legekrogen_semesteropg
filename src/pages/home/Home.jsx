@@ -8,7 +8,7 @@ function Home() {
       <div className={styles.contentDiv}>
         <div className={styles.contentHeaderDiv}>
           <h2 className={`cursive ${styles.altVores} `}>Et udpluk af vores</h2>
-          <h1 className={styles.leje}>LEJETØJ</h1>
+          <h1 className={styles.leje}>LEGETØJ</h1>
         </div>
 
         <Products rec={true} />
