@@ -1,8 +1,7 @@
 import styles from "./singleProduct.module.css";
-import CartCounter from "../cartCounter/CartCounter";
+import CartCounter from "../header/cartDropdown/cartCounter/CartCounter";
 
 function SingleProduct({ product }) {
-  
   return (
     <div className={styles.productContainer}>
       <div className={styles.inner}>

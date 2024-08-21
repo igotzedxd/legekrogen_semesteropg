@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import styles from "./header.module.css";
-import Logo from "../logo/Logo";
+import Logo from "./logo/Logo";
 import NavigationMenu from "../navigationMenu/NavigationMenu";
 import ShoppingCartIcon from "../shoppingCartIcon/ShoppingCartIcon";
-import CartDropdown from "../cartDropdown/CartDropdown";
+import CartDropdown from "./cartDropdown/CartDropdown";
 import { AppContext } from "../../context/AppContext";
 
 // Main Header Component
@@ -21,10 +21,7 @@ function Header() {
     setActiveCart((prev) => !prev);
   }
 
-  const totalPrice = cart.reduce(
-    (total, product) => total + product.price * product.count,
-    0
-  );
+  const totalPrice = cart.reduce((total, product) => total + product.price * product.count, 0);
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import styles from "./cartCounter.module.css";
-import { AppContext } from "../../context/AppContext";
+import { AppContext } from "../../../../context/AppContext";
 
 function CartCounter({ product }) {
   const { cart, handleCart } = useContext(AppContext);
@@ -15,16 +15,13 @@ function CartCounter({ product }) {
 
   const handleInputChange = (e) => {
     let value = e.target.value;
-  
-    value = value === "" ? "0" :
-            (value.length > 1 && value[0] === "0") ? value.slice(1) :
-            value;
-  
+
+    value = value === "" ? "0" : value.length > 1 && value[0] === "0" ? value.slice(1) : value;
+
     const newValue = !isNaN(value) && Number(value) >= 0 ? value : "0";
-  
+
     setInputCount(newValue);
   };
-  
 
   const handleUpdateClick = (e) => {
     e.stopPropagation();

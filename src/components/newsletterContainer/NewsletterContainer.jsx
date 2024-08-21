@@ -1,7 +1,7 @@
 import { useState } from "react";
-import NewsletterLink from "../newsletterLink/NewsletterLink";
-import NewsletterForm from "../newsletterForm/NewsletterForm";
-import NewsletterMessage from "../newsletterMessage/NewsletterMessage";
+import NewsletterLink from "./newsletterLink/NewsletterLink";
+import NewsletterForm from "./newsletterForm/NewsletterForm";
+import NewsletterMessage from "./newsletterMessage/NewsletterMessage";
 /* import styles from './newslettercontainer.module.css'; */
 
 function NewsletterContainer() {
