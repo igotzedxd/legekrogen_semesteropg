@@ -1,5 +1,5 @@
 import { FaRegTrashCan } from "react-icons/fa6";
-import CartCounter from "../cartCounter/CartCounter";
+import CartCounter from "./cartCounter/CartCounter";
 import styles from "./cartDropdown.module.css";
 
 function CartDropdown({ activeCart, cart, handleCart, totalPrice }) {
@@ -18,11 +18,7 @@ function CartDropdown({ activeCart, cart, handleCart, totalPrice }) {
           <>
             {cart.map((product, index) => (
               <div key={index} className={styles.cartItem}>
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className={styles.cartItemImage}
-                />
+                <img src={product.image} alt={product.title} className={styles.cartItemImage} />
                 <div className={styles.cartItemDetails}>
                   <p>{product.title}</p>
                   <p>{product.price * product.count} kr</p>

@@ -6,7 +6,7 @@ import DeliveryMessage from "../../components/deliveryMessage/DeliveryMessage";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import SingleProduct from "../../components/singleProduct/SingleProduct";
-import CarouselComp from "../../components/carouselComp/CarouselComp";
+import CarouselComp from "../../components/singleProduct/carouselComp/CarouselComp";
 import { AppContext } from "../../context/AppContext";
 import Loader from "../../components/loader/Loader";
 

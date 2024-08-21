@@ -1,7 +1,7 @@
-import styles from "../productCard/productCard.module.css";
+import styles from "./productCard.module.css";
 import { useState, useEffect, useContext } from "react";
-import { AppContext } from "../../context/AppContext";
-import CartCounter from "../cartCounter/CartCounter";
+import { AppContext } from "../../../context/AppContext";
+import CartCounter from "../../header/cartDropdown/cartCounter/CartCounter";
 
 const ProductCard = ({ product }) => {
   const [liked, setLiked] = useState(false);
@@ -14,8 +14,7 @@ const ProductCard = ({ product }) => {
 
   useEffect(() => {
     // Check if the product is already liked when the component mounts
-    const likedProducts =
-      JSON.parse(localStorage.getItem("likedProducts")) || [];
+    const likedProducts = JSON.parse(localStorage.getItem("likedProducts")) || [];
     if (likedProducts.includes(product._id)) {
       setLiked(true);
     }
@@ -25,8 +24,7 @@ const ProductCard = ({ product }) => {
     e.preventDefault();
     setLiked((prevLiked) => {
       const newLikedStatus = !prevLiked;
-      let likedProducts =
-        JSON.parse(localStorage.getItem("likedProducts")) || [];
+      let likedProducts = JSON.parse(localStorage.getItem("likedProducts")) || [];
 
       if (newLikedStatus) {
         // Add the product to liked products in localStorage if it's not already there
@@ -36,9 +34,7 @@ const ProductCard = ({ product }) => {
         }
       } else {
         // Remove the product from liked products in localStorage
-        likedProducts = likedProducts.filter(
-          (productId) => productId !== product._id
-        );
+        likedProducts = likedProducts.filter((productId) => productId !== product._id);
         localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
       }
 
@@ -51,11 +47,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className={styles.productDiv}>
-      <img
-        src={product.image}
-        className={styles.productImg}
-        alt={product.title}
-      />
+      <img src={product.image} className={styles.productImg} alt={product.title} />
       <div className={styles.productContentDiv}>
         <div className={styles.productTextDiv}>
           <p className={styles.productName}>{product.title}</p>

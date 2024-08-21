@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import styles from "../myFavorites/myFavorites.module.css";
 import { NavLink } from "react-router-dom";
-import { AppContext } from "../../context/AppContext";
+import { AppContext } from "../../../context/AppContext";
 
 const MyFavorites = () => {
   const { data } = useContext(AppContext);

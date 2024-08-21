@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import ProductCard from "../productCard/ProductCard";
-import MyFavorites from "../myFavorites/MyFavorites";
+import ProductCard from "./productCard/ProductCard";
+import MyFavorites from "./myFavorites/MyFavorites";
 import styles from "./products.module.css";
 import { AppContext } from "../../context/AppContext";
 import Loader from "../loader/Loader";

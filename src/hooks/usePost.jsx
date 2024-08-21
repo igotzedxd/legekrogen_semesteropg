@@ -24,6 +24,7 @@ function usePost(url) {
 
       const result = await response.json();
       setData(result);
+      console.log("Successfully posted:", result.name);
     } catch (err) {
       setError(err.message);
     } finally {
