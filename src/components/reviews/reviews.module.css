@@ -13,12 +13,12 @@
     max-width: 1144px;
 }
 
-.container > h2{
+.inner > h2{
     font-size: 3rem;
     font-weight: 300;
 }
 
-.container > h1{
+.inner > h1{
     font-size: 3rem;
     font-weight: 300;
     margin-bottom: 3vh;
