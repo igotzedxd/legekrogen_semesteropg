@@ -8,20 +8,8 @@
   align-items: center;
 }
 
-@media (min-width: 1144px) {
-  .counterContainer {
-    display: none;
-  }
-}
-
 .inputContainer {
   display: none;
-}
-
-@media (min-width: 1144px) {
-  .inputContainer {
-    display: block;
-  }
 }
 
 .inputField {
@@ -49,7 +37,9 @@
   border-radius: 5px;
   font-size: 1rem;
   margin: 0 3px;
+  cursor: pointer;
 }
+
 
 .incButton {
   background-color: rgba(66, 123, 66, 0.81);
@@ -80,4 +70,18 @@
 .counterContainer > span{
   font-size: 1.5rem;
   margin-right: 10px;
+}
+
+.inputContainer > button:hover{
+  background-color: black;
+}
+
+@media (min-width: 1144px) {
+  .counterContainer {
+    display: none;
+  }
+
+  .inputContainer {
+    display: block;
+  }
 }

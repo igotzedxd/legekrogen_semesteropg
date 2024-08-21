@@ -33,4 +33,9 @@
   border-radius: 25px;
   letter-spacing: 1px;
   margin: 20px 0;
+  cursor: pointer;
+}
+
+.inner > button:hover{
+  background-color: black;
 }

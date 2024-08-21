@@ -9,6 +9,10 @@
   padding: 100px 0;
 }
 
+.faq:hover{
+  cursor: pointer;
+}
+
 .faq {
   position: relative;
   min-width: 350px;

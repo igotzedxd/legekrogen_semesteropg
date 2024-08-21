@@ -2,6 +2,11 @@
   color: white;
   font-size: 200%;
   z-index: 999;
+  cursor: pointer;
+}
+
+.burgerMenu:hover{
+  color: black;
 }
 
 .nav {
@@ -21,4 +26,8 @@
   left: 0;
   z-index: 990;
   color: white;
+}
+
+.nav > li:hover{
+  color: black;
 }
