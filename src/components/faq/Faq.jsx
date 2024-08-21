@@ -3,9 +3,10 @@ import styles from "./faq.module.css";
 import useFetch from "../../hooks/useFetch";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import parse from "html-react-parser";
+import Loader from "../loader/Loader";
 
 function Faq() {
-  const { data: questions, error } = useFetch("https://legekrogen.webmcdm.dk/questions");
+  const { data: questions, error, loading } = useFetch("https://legekrogen.webmcdm.dk/questions");
   const [openIds, setOpenIds] = useState([]);
 
   const toggleOpenId = (id) => {
@@ -25,12 +26,12 @@ function Faq() {
     return parse(modifiedContent);
   };
 
-  if (error) console.log("error: ", error);
+  (error) => console.log("error: ", error);
 
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
-        {questions ? (
+        {!loading ? (
           questions.map((q) => (
             <div key={q._id} onClick={() => toggleOpenId(q._id)} className={styles.faq}>
               {/* render question */}
@@ -55,7 +56,7 @@ function Faq() {
             </div>
           ))
         ) : (
-          <p>Loading...</p>
+          <Loader />
         )}
       </div>
     </div>

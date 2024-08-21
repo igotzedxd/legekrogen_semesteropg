@@ -8,18 +8,13 @@ import Footer from "../../components/footer/Footer";
 import SingleProduct from "../../components/singleProduct/SingleProduct";
 import CarouselComp from "../../components/carouselComp/CarouselComp";
 import { AppContext } from "../../context/AppContext";
+import Loader from "../../components/loader/Loader";
 
 function EnkeltProdukt() {
   const { id } = useParams();
-  const { data: products, error } = useContext(AppContext);
+  const { data: products, error, loading } = useContext(AppContext);
 
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
-
-  if (!products) {
-    return <p>Loading...</p>;
-  }
+  (error) => console.log("error: ", error);
 
   // filter out recommended products
   const recommendedProducts = products.filter((product) => product.recommended == true);
@@ -30,16 +25,19 @@ function EnkeltProdukt() {
   // find the product with the id from the url
   const product = products.find((product) => product._id === id);
 
-  if (!product) {
-    return <p>No product found with id: {id}</p>;
-  }
-
   return (
     <>
       <DeliveryMessage />
       <Header />
-      <SingleProduct product={product} />
-      <CarouselComp products={duplicatedProducts} />
+      {!loading ? (
+        <>
+          <SingleProduct product={product} />
+          <CarouselComp products={duplicatedProducts} />
+        </>
+      ) : (
+        <Loader />
+      )}
+
       <Footer />
     </>
   );

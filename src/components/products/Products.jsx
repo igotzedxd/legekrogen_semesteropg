@@ -4,26 +4,31 @@ import ProductCard from "../productCard/ProductCard";
 import MyFavorites from "../myFavorites/MyFavorites";
 import styles from "./products.module.css";
 import { AppContext } from "../../context/AppContext";
+import Loader from "../loader/Loader";
 
 function Products({ rec }) {
-  const { data, error } = useContext(AppContext);
+  const { data, error, loading } = useContext(AppContext);
 
   const products = rec ? data?.filter((product) => product.recommended) : data;
 
-  if (error) {
-    return <div>{error}</div>;
-  }
+  (error) => console.log("error: ", error);
 
   return (
     <>
-      <div className={styles.productContainer}>
-        {products?.map((product, index) => (
-          <Link to={`/produkter/${product._id}`} key={index}>
-            <ProductCard id={product._id} product={product} />
-          </Link>
-        ))}
-      </div>
-      <MyFavorites />
+      {!loading ? (
+        <>
+          <div className={styles.productContainer}>
+            {products?.map((product, index) => (
+              <Link to={`/produkter/${product._id}`} key={index}>
+                <ProductCard id={product._id} product={product} />
+              </Link>
+            ))}
+          </div>
+          <MyFavorites />
+        </>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 }
