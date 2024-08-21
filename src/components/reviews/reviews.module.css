@@ -1,11 +1,16 @@
 .container{
+    text-align: center;
+    margin: 8vh 0;
+    color: #355674;
+}
+
+.inner{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column wrap;
-    text-align: center;
-    margin: 8vh 0;
-    color: #355674;
+    margin: 0 auto;
+    max-width: 1144px;
 }
 
 .container > h2{

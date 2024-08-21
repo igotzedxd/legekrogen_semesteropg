@@ -1,25 +1,30 @@
 .container {
   background-color: #d7e6ec;
   color: #355674;
+  padding: 8vh 0;
+}
+
+.inner{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
   gap: 20px;
-  padding: 8vh 0;
+  max-width: 1144px;
+  margin: 0 auto;
 }
 
-.container > p {
+.inner > p {
   width: 80%;
   text-align: center;
 }
 
-.container > h2 {
+.inner > h2 {
   font-size: 5rem;
   font-weight: 300;
 }
 
-.container > button {
+.inner > button {
   width: 75%;
   background-color: #355674;
   color: #d7e6ec;

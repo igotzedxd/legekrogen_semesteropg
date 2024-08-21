@@ -69,11 +69,12 @@ li {
   }
 }
 
-@media screen and (min-width: 1425px) {
+@media screen and (min-width: 1144px) {
   .inner {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+    max-width: 1144px;
   }
 
   .faq {
@@ -81,11 +82,5 @@ li {
     min-height: 120px;
     padding: 24px 40px;
     flex: 0;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .inner {
-    width: 80%;
   }
 }

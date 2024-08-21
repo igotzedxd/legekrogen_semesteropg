@@ -13,18 +13,20 @@ function Reviews() {
 
   return (
     <div className={styles.container}>
-      <h2 className="cursive">Vores kunder</h2>
-      <h1>UDTALER</h1>
-      {reviews ? (
-        reviews.map((review, index) => (
-          <div key={index} className={styles.reviewContainer}>
-            <p className={styles.reviewDescription}>"{review.description}"</p>
-            <p className={`cursive ${styles.reviewName}`}>{review.name}</p>
-          </div>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
+      <div className={styles.inner}>
+        <h2 className="cursive">Vores kunder</h2>
+        <h1>UDTALER</h1>
+        {reviews ? (
+          reviews.map((review, index) => (
+            <div key={index} className={styles.reviewContainer}>
+              <p className={styles.reviewDescription}>"{review.description}"</p>
+              <p className={`cursive ${styles.reviewName}`}>{review.name}</p>
+            </div>
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 }

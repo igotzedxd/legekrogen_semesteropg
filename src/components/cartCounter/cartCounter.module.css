@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1144px) {
   .counterContainer {
     display: none;
   }
@@ -18,7 +18,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1144px) {
   .inputContainer {
     display: block;
   }
@@ -48,7 +48,7 @@
   border: 0.5px solid grey;
   border-radius: 5px;
   font-size: 1rem;
-  margin: 0 2px;
+  margin: 0 3px;
 }
 
 .incButton {
@@ -75,4 +75,9 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.counterContainer > span{
+  font-size: 1.5rem;
+  margin-right: 10px;
 }
