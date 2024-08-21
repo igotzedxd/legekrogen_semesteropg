@@ -19,8 +19,8 @@ function Footer() {
         <div className={styles.socials}>
           <h3 className="cursive">Følg os</h3>
           <span>
-            <FaFacebook />
-            <FaInstagram />
+            <FaFacebook style={{cursor: "pointer"}}/>
+            <FaInstagram style={{cursor: "pointer"}}/>
           </span>
         </div>
       </div>
