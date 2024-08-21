@@ -43,6 +43,12 @@
   padding: 10px;
 }
 
+.likeButton {
+  margin-left: -10px;
+  font-size: 1.2rem;
+  width: 30px;
+}
+
 .likeButton,
 .cartButton {
   background-color: transparent;
@@ -81,7 +87,6 @@
   font-weight: 500;
 }
 
-.cartDiv{
+.cartDiv {
   margin-left: 8px;
 }
-
