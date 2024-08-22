@@ -1,4 +1,5 @@
 .productDiv {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -89,4 +90,20 @@
 
 .cartDiv {
   margin-left: 8px;
+}
+
+.discount {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 1rem;
+  right: 1rem;
+  background: #d7e6ec;
+  color: #355674;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 2rem;
 }

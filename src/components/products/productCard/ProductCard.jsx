@@ -47,6 +47,9 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className={styles.productDiv}>
+      {product.discountInPercent > 0 && (
+        <span className={`cursive ${styles.discount}`}>{product.discountInPercent}%</span>
+      )}
       <img src={product.image} className={styles.productImg} alt={product.title} />
       <div className={styles.productContentDiv}>
         <div className={styles.productTextDiv}>
@@ -54,7 +57,12 @@ const ProductCard = ({ product }) => {
           <h3 className={styles.productDescription}>{product.description}</h3>
         </div>
         <div className={styles.priceDiv}>
-          <h3 className={styles.productPrice}>{product.price} kr</h3>
+          <h3 className={styles.productPrice}>
+            {product.discountInPercent > 0
+              ? product.price - (product.price * product.discountInPercent) / 100
+              : product.price}
+            kr
+          </h3>
           <button onClick={toggleLike} className={styles.likeButton}>
             {liked ? "❤️" : "♡"}
           </button>
