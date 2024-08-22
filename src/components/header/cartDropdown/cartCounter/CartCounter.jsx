@@ -24,6 +24,7 @@ function CartCounter({ product }) {
   };
 
   const handleUpdateClick = (e) => {
+    //prevents parent from getting click event
     e.stopPropagation();
     handleCart(e, "updateCount", product, inputCount);
   };

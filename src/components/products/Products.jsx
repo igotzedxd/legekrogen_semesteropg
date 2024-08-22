@@ -9,6 +9,7 @@ import Loader from "../loader/Loader";
 function Products({ rec }) {
   const { data, error, loading } = useContext(AppContext);
 
+  //recommended products sorting by product.recommended IF rec is true
   const products = rec ? data?.filter((product) => product.recommended) : data;
 
   (error) => console.log("error: ", error);

@@ -5,6 +5,7 @@ function usePost(url) {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
+  //builds post then uses URL param to use correct API to post data
   const post = async (postData) => {
     setLoading(true);
     setError(null);

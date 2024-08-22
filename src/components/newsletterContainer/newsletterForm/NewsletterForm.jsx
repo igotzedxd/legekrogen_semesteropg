@@ -21,7 +21,9 @@ function NewsletterForm({ onSubmitSuccess }) {
       message: msgValue,
     };
 
+    //posts user to API
     post(postData).then(() => {
+      //runs function on successful submission of new user 
       onSubmitSuccess();
     });
   };
