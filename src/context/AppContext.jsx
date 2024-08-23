@@ -46,7 +46,7 @@ export const ContextProvider = ({ children }) => {
                   item._id === product._id ? { ...item, count: newCount } : item
                 )
               : prevCart.filter((item) => item._id !== product._id) // Remove item if count is 0
-            : prevCart // Do nothing if newCount is 0 and item is not in cart
+            : [...prevCart, { ...product, count: newCount }] // Do nothing if newCount is 0 and item is not in cart
           : prevCart;
 
       localStorage.setItem("cartProducts", JSON.stringify(updatedCart));
