@@ -14,7 +14,8 @@ const ProductCard = ({ product }) => {
 
   useEffect(() => {
     // Check if the product is already liked when the component mounts
-    const likedProducts = JSON.parse(localStorage.getItem("likedProducts")) || [];
+    const likedProducts =
+      JSON.parse(localStorage.getItem("likedProducts")) || [];
     if (likedProducts.includes(product._id)) {
       setLiked(true);
     }
@@ -24,7 +25,8 @@ const ProductCard = ({ product }) => {
     e.preventDefault();
     setLiked((prevLiked) => {
       const newLikedStatus = !prevLiked;
-      let likedProducts = JSON.parse(localStorage.getItem("likedProducts")) || [];
+      let likedProducts =
+        JSON.parse(localStorage.getItem("likedProducts")) || [];
 
       if (newLikedStatus) {
         // Add the product to liked products in localStorage if it's not already there
@@ -34,23 +36,31 @@ const ProductCard = ({ product }) => {
         }
       } else {
         // Remove the product from liked products in localStorage
-        likedProducts = likedProducts.filter((productId) => productId !== product._id);
+        likedProducts = likedProducts.filter(
+          (productId) => productId !== product._id
+        );
         localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
       }
+      const event = new Event("favoritesUpdated");
+      // Dispatch the event
+      window.dispatchEvent(event);
 
       return newLikedStatus;
     });
-    const event = new Event("favoritesUpdated");
-    // Dispatch the event
-    window.dispatchEvent(event);
   };
 
   return (
     <div className={styles.productDiv}>
       {product.discountInPercent > 0 && (
-        <span className={`cursive ${styles.discount}`}>{product.discountInPercent}%</span>
+        <span className={`cursive ${styles.discount}`}>
+          {product.discountInPercent}%
+        </span>
       )}
-      <img src={product.image} className={styles.productImg} alt={product.title} />
+      <img
+        src={product.image}
+        className={styles.productImg}
+        alt={product.title}
+      />
       <div className={styles.productContentDiv}>
         <div className={styles.productTextDiv}>
           <p className={styles.productName}>{product.title}</p>
@@ -59,7 +69,8 @@ const ProductCard = ({ product }) => {
         <div className={styles.priceDiv}>
           <h3 className={styles.productPrice}>
             {product.discountInPercent > 0
-              ? product.price - (product.price * product.discountInPercent) / 100
+              ? product.price -
+                (product.price * product.discountInPercent) / 100
               : product.price}
             kr
           </h3>
